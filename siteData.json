@@ -94,6 +94,20 @@
       "headingKeywords": {}
     },
     {
+      "src": "TeamWorkflow.md",
+      "headings": {
+        "development-workflow-and-conventions": "Development Workflow and Conventions",
+        "introduction": "Introduction",
+        "pull-request-pr-workflow": "Pull Request (PR) Workflow",
+        "major-changes": "Major Changes",
+        "minor-changes": "Minor Changes",
+        "branch-naming-conventions": "Branch Naming Conventions",
+        "consistency-and-compliance": "Consistency and Compliance",
+        "conclusion": "Conclusion"
+      },
+      "headingKeywords": {}
+    },
+    {
       "src": "Testing.md",
       "title": "Testing guide",
       "headings": {
