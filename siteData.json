@@ -126,10 +126,11 @@
         "features": "Features",
         "adding-a-client-add": "Adding a client: add",
         "deleting-a-client-delete": "Deleting a client : delete",
+        "listing-clients-list": "Listing clients : list",
         "exiting-the-program-exit": "Exiting the program : exit",
         "saving-the-data": "Saving the data",
         "editing-the-data-file": "Editing the data file",
-        "listing-all-clients-coming-in-v1-2": "Listing all clients [coming in v1.2]",
+        "editing-client-details-searching-for-clients-coming-in-v1-2": "Editing client details, Searching for clients [coming in v1.2]",
         "faq": "FAQ",
         "known-issues": "Known issues",
         "command-summary": "Command summary"
