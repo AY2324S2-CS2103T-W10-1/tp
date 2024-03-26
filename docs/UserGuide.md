@@ -45,101 +45,80 @@ command to run the application.<br>
 
 **Notes about the command format:**<br>
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+Command Format | Representation | Examples
+---------------|-----------------|---------
+`UPPER_CASE` | Parameters to be supplied by the user. | in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+`[]` | Parameters enclosed in square brackets are optional. | `add [r\REMARK]` means remark does not need to be supplied.
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
-
-* Parameters enclosed in `[]` are optional to input.
 
 </box>
 
 ### Adding a client: `add`
 
-Adds a client to Realodex. 
-
-Format: `add n/NAME p/PHONE i/INCOME e/EMAIL a/ADDRESS f/FAMILY t/TAG [r/REMARK]`
-
-- Note that `REMARK` is optional, enclosed in `[]`.
-- You may input the parameters in any order (e.g. if
-the command specifies `n/NAME a/ADDRESS`, `a/ADDRESS n/NAME` is also acceptable). 
-- Note that the tag is to indicate if a client is a
-Buyer, Seller or both, so tags only accept "buyer" or "seller" as the input (case-insensitive).
-
-Examples:
-* `add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02-25 f/4 t/Buyer r/Owes $1000.`
-* `add n/Betsy Crowe a/Newgate Prison i/$0 f/1 p/94859694 e/betsyc@rocketmail.com t/Seller t/Buyer`
+| Action    | Adds a client to Realodex.                                                                                                                                                                                                                                                                                                                                        |
+|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Format    | `add n/NAME p/PHONE i/INCOME e/EMAIL a/ADDRESS f/FAMILY t/TAG [r/REMARK]`                                                                                                                                                                                                                                                                                         |
+| Notes     | - Note that `REMARK` is optional, enclosed in `[]`. <br> - You may input the parameters in any order (e.g. if <br> the command specifies `n/NAME a/ADDRESS`, `a/ADDRESS n/NAME` is also acceptable). <br> - Note that the tag is to indicate if a client is a<br> Buyer, Seller or both, so tags only accept "buyer" or "seller" as the input (case-insensitive). |
+| Examples  | * `add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02-25 f/4 t/Buyer r/Owes $1000.` <br> * `add n/Betsy Crowe a/Newgate Prison i/$0 f/1 p/94859694 e/betsyc@rocketmail.com t/Seller t/Buyer`                                                                                                                                        |
 
 ### Deleting a client : `delete`
 
 Deletes the specified client from Realodex. There are 2 ways to do so: 
 
-#### Deleting by name
+| Action   | Deleting by **name**                                                                                                                          |
+|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+| Format   | `delete n/NAME`                                                                                                                               |
+| Notes    | * Deletes the client of the specified `NAME` in Realodex. <br> * If name is **not found**, error message will be shown `"NAME" is not found`. |
+| Examples | `delete n/Udhaya Shanmugam` deletes the client in Realodex with the name "Udhaya Shanmugam".                                                  |
 
-Format: `delete n/NAME`
-
-* Deletes the client of the specified `NAME` in Realodex.
-* If name is **not found**, error message will be shown `"NAME" is not found`.
-
-Example:
-* `delete n/Udhaya Shanmugam` deletes the client in Realodex with the name "Udhaya Shanmugam".
-
-#### Deleting by index
-
-Format: `delete INDEX`
-
-* Deletes the client of the specified `INDEX` in Realodex.
-* If the index number is **invalid**, error message will be shown `The client index provided is invalid`.
-
-Example:
-* `delete 4` deletes the 4th client listed in Realodex, provided he/she exists.
+| Action   | Deleting by **index**                                                                                                                                                     |
+|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Format   | `delete INDEX`                                                                                                                                                            |
+| Notes    | * Deletes the client of the specified `INDEX` in Realodex. <br> * If the index number is **invalid**, error message will be shown `The client index provided is invalid`. |
+| Examples | `delete 4` deletes the 4th client listed in Realodex, provided he/she exists.                                                                                             |
 
 ### Editing clients : `edit`
 
-Edits specified details of the client.
-
-Format: `edit INDEX [n/NAME] [p/PHONE] [i/INCOME] [e/EMAIL] [a/ADDRESS] [f/FAMILY] [t/TAG] [r/REMARK]`
-
-- If `INDEX` is `3`, the 3rd client's information will be edited.
-- It is optional to edit any field (i.e, you can choose to edit any combination of fields so long there is at least 1).
-- The current information will be overwritten with the input provided.
-
-Examples:
-
-- `edit 1 p/999` will overwrite the 1st client's phone number to `999`.
-- `edit 2 n/Kylie  i/3333 f/5` will overwrite the 2nd client's name to `Kylie`, income to `3333` and family size to `5`.
+| Action   | Edits specified details of the client.                                                                                                                                                                                                                                 |
+|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Format   | `edit INDEX [n/NAME] [p/PHONE] [i/INCOME] [e/EMAIL] [a/ADDRESS] [f/FAMILY] [t/TAG] [r/REMARK]`                                                                                                                                                                         |
+| Notes    | - If `INDEX` is `3`, the 3rd client's information will be edited.<br>- It is optional to edit any field (i.e, you can choose to edit any combination of fields so long there is at least 1).<br>- The current information will be overwritten with the input provided. |
+| Examples | - `edit 1 p/999` will overwrite the 1st client's phone number to `999`.<br>- `edit 2 n/Kylie  i/3333 f/5` will overwrite the 2nd client's name to `Kylie`, income to `3333` and family size to `5`.                                                                    |
+|
 
 ### Filtering clients : `filter`
 
-Filters the list of client with an input keyphrase.
+| Action   | Filters the list of client with an input keyphrase.                                                                                                                                                                                               |
+|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Format   | `filter KEYPHRASE`                                                                                                                                                                                                                                |
+| Notes    | - The search is case-insensitive. e.g `james` will match `James`<br>- Partial words will still be matched e.g. `Udh` will match `Udhaya`<br>- All persons' names containing the keyword will be returned e.g. `Al` will return `Alicia`, `Allysa` |
+| Examples | `filter Al` will list out persons whose name has `"Al"` inside, such as `"Alicia"`, `"Allysa"` and `"Jamal"`                                                                                                                                      |
 
-Format: `filter KEYPHRASE`
-
-- The search is case-insensitive. e.g `james` will match `James`
-- Partial words will still be matched e.g. `Udh` will match `Udhaya`
-- All persons' names containing the keyword will be returned e.g. `Al` will return `Alicia`, `Allysa`
-
-Example:
-
-- `filter Al` will list out persons whose name has `"Al"` inside, such as `"Alicia"`, `"Allysa"` and `"Jamal"`
 
 ### Listing clients : `list`
 
-Lists all clients in Realodex.
-
-Format: `list`
+| Action    | Lists all clients in Realodex.                                                                                                                                                                                                                                                                                                                              |
+|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Format    |`list`                                                                                                                                                                                                                                                            |
+| Notes     |
+| Examples  |                                                                                                 |
 
 ### Help : `help`
 
-Generates a pop-up window which is a summarised version of the User Guide.
-
-Format: `help`
+| Action   | Generates a pop-up window which is a summarised version of the User Guide. |
+|:---------|:---------------------------------------------------------------------------|
+| Format   | `help`                                                                     |
+| Notes    |
+| Examples |                                                                            |
 
 ### Exiting the program : `exit`
 
-Exits the program.
-
-Format: `exit`
+| Action   | Exits the program. |
+|:---------|:-------------------|
+| Format   | `exit`             |
+| Notes    |
+| Examples |                    |
 
 ### Saving the data
 
