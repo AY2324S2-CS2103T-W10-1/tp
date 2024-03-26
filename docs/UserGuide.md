@@ -3,8 +3,7 @@
   title: "User Guide"
   pageNav: 3
 ---
-
-# Realodex (RDX) User Guide
+![](../src/main/resources/images/realodex_icon.png)
 
 Realodex (or RDX for short) is a **desktop app for managing client contacts, optimized for use via a
 Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
