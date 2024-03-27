@@ -8,7 +8,6 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.realodex.commons.util.ToStringBuilder;
-import seedu.realodex.model.remark.Remark;
 import seedu.realodex.model.tag.Tag;
 
 /**

@@ -1,4 +1,4 @@
-package seedu.realodex.model.remark;
+package seedu.realodex.model.person;
 
 import static java.util.Objects.requireNonNull;
 
