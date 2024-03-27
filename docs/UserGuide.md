@@ -44,10 +44,10 @@ command to run the application.<br>
 
 **Notes about the command format:**<br>
 
-Command Format | Representation | Examples
----------------|-----------------|---------
-`UPPER_CASE` | Parameters to be supplied by the user. | in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-`[]` | Parameters enclosed in square brackets are optional. | `add [r\REMARK]` means remark does not need to be supplied.
+| Command Format | Representation                                       | Examples                                                                      |
+|----------------|------------------------------------------------------|-------------------------------------------------------------------------------|
+| `UPPER_CASE`   | Parameters to be supplied by the user.               | in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`. |
+| `[]`           | Parameters enclosed in square brackets are optional. | `add [r\REMARK]` means remark does not need to be supplied.                   |
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 
@@ -111,13 +111,24 @@ Deletes the specified client from Realodex. There are 2 ways to do so:
 | Notes    |
 | Examples |                                                                            |
 
-### Exiting the program : `exit`
+## Exiting the program : `exit`
 
-| Action   | Exits the program. |
-|:---------|:-------------------|
-| Format   | `exit`             |
-| Notes    |
-| Examples |                    |
+### Details
+
+| Action | Exits the program. |
+| --- | --- |
+| Format | exit |
+
+### **Errors you may face:**
+
+| What went wrong                 | Wrong input example | Error message                                         |
+|---------------------------------|---------------------|-------------------------------------------------------|
+| Both index and name is provided | delete 1 n/NAME     | "Please provide either an index or a name, not both.” |
+| Invalid index provided          |                     |                                                       |
+
+---
+
+# Data Processing
 
 ### Saving the data
 
@@ -127,42 +138,60 @@ Realodex data is saved in the hard disk automatically after any command that mod
 
 Realodex data is saved automatically as a JSON file `[JAR file location]/data/realodex.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<box type="warning" seamless>
+<aside>
+⚠️ If your changes to the data file makes its format invalid, Realodex will discard all data and start with an empty data file at the next run. Hence, it is recommended to make a backup of the file before editing it. Only edit the data file only if you are confident that you can update it correctly.
 
-**Caution:**
-If your changes to the data file makes its format invalid, Realodex will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
-Furthermore, certain edits can cause the Realodex to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
-</box>
+</aside>
 
-### Filtering clients by income and more `[coming in v1.3]`
-
-_Details coming soon ..._
-
-
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## FAQ
 
-**Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+**Q**: How do I transfer my data to another
+Computer?
 
---------------------------------------------------------------------------------------------------------------------
+**A**: Install the app in the other computer
+and overwrite the empty data file it creates with the file that contains
+the data of your previous AddressBook home folder.
+
+---
 
 ## Known issues
 
-1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+1. **When using multiple screens**, if you move the
+   application to a secondary screen, and later switch to using only the
+   primary screen, the GUI will open off-screen. The remedy is to delete
+   the `preferences.json` file created by the application before
+   running the application again.
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## Command summary
 
-Action     | Format, Examples
------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**    | `add n/NAME p/PHONE i/INCOME e/EMAIL a/ADDRESS f/FAMILY t/TAG [r/REMARK]` <br> e.g. `add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02-25 f/4 r/Buyer t/Owes $1000.`
-**Delete (by name)** | `delete n/NAME`<br> e.g. `delete n/John`
-**Delete (by index)** | `delete INDEX`<br> e.g. `delete 3`
-**edit** | `edit INDEX [n/NAME] [p/PHONE] [i/INCOME] [e/EMAIL] [a/ADDRESS] [f/FAMILY] [t/TAG] [r/REMARK]` <br> e.g. `edit 2 n/Denzel i/100000`
-**filter** | `filter STRING`<br> e.g. `filter David`
-**list**   | `list`
-**help** | `help`
-**exit**   | `exit`
+| Action            | Format                                                                                       | Examples                                                                                                      |
+|-------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| add               | add n/NAME p/PHONE i/INCOME e/EMAIL a/ADDRESS f/FAMILY t/TAG [r/REMARK]                      | add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02-25 f/4 r/Buyer t/Owes $1000. |
+| delete (by Name)  | delete n/NAME                                                                                | delete n/John                                                                                                 |
+| delete (by Index) | delete INDEX                                                                                 | delete 3                                                                                                      |
+| edit              | edit INDEX [n/NAME] [p/PHONE] [i/INCOME] [e/EMAIL] [a/ADDRESS] [f/FAMILY] [t/TAG] [r/REMARK] | edit 2 n/Denzel i/100000                                                                                      |
+| filter            | filter NAME_SUBSTRING                                                                        | filter David                                                                                                  |
+| list              | list                                                                                         | -                                                                                                             |
+| help              | help                                                                                         |                                                                                                               |
+| exit              | exit                                                                                         |                                                                                                               |
+
+## Prefix Summary
+
+| Prefix                                                                                                 | Field   | Constraints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|--------------------------------------------------------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| n/                                                                                                     | Name    | Should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| p/                                                                                                     | Phone   | Should only contain numbers, and it should be at least 3 digits long                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| i/                                                                                                     | Income  | Should be an integer and should be at least 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| e/                                                                                                     | Email   | Emails should be of the format local-part@domain <br> 1. The local-part should only contain alphanumeric characters and these special characters, excluding (+_.-)<br>2. The local-part may not start or end with any special characters<br>3. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods.<br>4. The domain name must:<br>- end with a domain label at least 2 characters long<br>- have each domain label start and end with alphanumeric characters<br>- have each domain label consist of alphanumeric characters, separated only by hyphens, if any. |
+  | a/                                                                                                     | Address | Addresses can take any values, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+  | f/                                                                                                     | Family  | Family size should be at least 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+  | t/                                                                                                     | Tag     | Tag names should be either 'buyer' or 'seller'"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+  | r/                                                                                                     | Remark  | Remarks should be non-empty                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+ ⚠️  Remarks are optional to add, but once you use the prefix r/ to add a remark, it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+
+---
