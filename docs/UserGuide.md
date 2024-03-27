@@ -1,3 +1,9 @@
+---
+layout: default.md
+title: "User Guide"
+pageNav: 3
+---
+
 # Realodex UserGuide
 
 # Welcome to `Realodex` v1.3 User Guide!
