@@ -2,13 +2,13 @@ package seedu.realodex.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.function.Predicate;
+
 import seedu.realodex.commons.util.ToStringBuilder;
 import seedu.realodex.logic.Messages;
 import seedu.realodex.model.Model;
-import seedu.realodex.model.person.NameContainsKeyphrasePredicate;
 import seedu.realodex.model.person.Person;
 
-import java.util.function.Predicate;
 
 /**
  * Filters and lists all persons in realodex whose name contains the argument keyphrase.
@@ -27,6 +27,8 @@ public class FilterCommand extends Command {
             + "the specified keyphrase (case-insensitive) and displays them as a list with index numbers.\n"
             + "Format: filter KEYPHRASE\n"
             + "Example: filter Jus\n";
+
+    public static final String MESSAGE_FILTER_CONFLICT = "Filter command can only filter by one field.\n";
 
     private final Predicate<Person> predicate;
 
