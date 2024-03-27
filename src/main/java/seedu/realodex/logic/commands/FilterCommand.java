@@ -6,6 +6,9 @@ import seedu.realodex.commons.util.ToStringBuilder;
 import seedu.realodex.logic.Messages;
 import seedu.realodex.model.Model;
 import seedu.realodex.model.person.NameContainsKeyphrasePredicate;
+import seedu.realodex.model.person.Person;
+
+import java.util.function.Predicate;
 
 /**
  * Filters and lists all persons in realodex whose name contains the argument keyphrase.
@@ -25,9 +28,9 @@ public class FilterCommand extends Command {
             + "Format: filter KEYPHRASE\n"
             + "Example: filter Jus\n";
 
-    private final NameContainsKeyphrasePredicate predicate;
+    private final Predicate<Person> predicate;
 
-    public FilterCommand(NameContainsKeyphrasePredicate predicate) {
+    public FilterCommand(Predicate<Person> predicate) {
         this.predicate = predicate;
     }
 
