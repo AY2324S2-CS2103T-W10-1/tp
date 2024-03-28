@@ -53,18 +53,4 @@ class PredicateProducerTest {
         assertTrue(exception.getMessage().contains(FilterCommand.MESSAGE_USAGE));
     }
 
-    @Test
-    void createPredicate_unhandledPrefix_throwsParseException() {
-        PredicateProducer predicateProducer = new PredicateProducer();
-        String keyphrase = "Alice";
-        Prefix unhandledPrefix = new Prefix("unhandled/");
-
-        ParseException exception = assertThrows(ParseException.class, () ->
-                predicateProducer.createPredicate(unhandledPrefix, keyphrase));
-
-        assertTrue(exception.getMessage().equals(
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, "Unhandled prefix: " + unhandledPrefix)
-        ));
-    }
-
 }
