@@ -5,7 +5,6 @@ import static seedu.realodex.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.realodex.logic.parser.CliSyntax.PREFIX_REMARK;
 
 import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 import seedu.realodex.logic.commands.FilterCommand;
 import seedu.realodex.logic.parser.exceptions.ParseException;
