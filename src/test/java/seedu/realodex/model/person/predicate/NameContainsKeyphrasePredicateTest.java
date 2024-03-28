@@ -1,4 +1,4 @@
-package seedu.realodex.model.person;
+package seedu.realodex.model.person.predicate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.realodex.model.person.Person;
 import seedu.realodex.model.person.predicates.NameContainsKeyphrasePredicate;
 import seedu.realodex.testutil.PersonBuilder;
 
@@ -44,6 +45,10 @@ public class NameContainsKeyphrasePredicateTest {
 
         // Keyphrase is more than one word
         predicate = new NameContainsKeyphrasePredicate("Alice Tan");
+        assertTrue(predicate.test(new PersonBuilder().withName("Alice Tan").build()));
+
+        // Name starts with matching keyphrase
+        predicate = new NameContainsKeyphrasePredicate("Alice");
         assertTrue(predicate.test(new PersonBuilder().withName("Alice Tan").build()));
 
         // Name does not start with matching keyphrase
