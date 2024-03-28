@@ -9,9 +9,8 @@ import java.util.stream.Stream;
 
 import seedu.realodex.logic.commands.FilterCommand;
 import seedu.realodex.logic.parser.exceptions.ParseException;
-import seedu.realodex.model.person.predicates.NameContainsKeyphrasePredicate;
 import seedu.realodex.model.person.Person;
-import seedu.realodex.model.person.predicates.RemarkContainsKeyphrasePredicate;
+import seedu.realodex.model.person.predicates.PredicateProducer;
 
 /**
  * Parses input arguments and creates a new FilterCommand object
@@ -37,8 +36,11 @@ public class FilterCommandParser implements Parser<FilterCommand> {
             );
         }
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_REMARK);
+
         Prefix presentPrefix = argMultimap.findPresentPrefix(PREFIX_NAME, PREFIX_REMARK);
-        Predicate<Person> predicate = producePredicate(argMultimap, presentPrefix);
+        String keyphrase = argMultimap.getValue(presentPrefix).get().trim();
+        PredicateProducer predicateProducer = new PredicateProducer();
+        Predicate<Person> predicate = predicateProducer.createPredicate(presentPrefix, keyphrase);
 
         return new FilterCommand(predicate);
     }
@@ -81,30 +83,4 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         }
     }
 
-    public static Predicate<Person> producePredicate(ArgumentMultimap argumentMultimap, Prefix presentPrefix) throws ParseException {
-        String keyphrase = argumentMultimap.getValue(presentPrefix).get().trim();
-        validKeyphrase(keyphrase); // Validates the keyphrase
-        if (presentPrefix.equals(PREFIX_NAME)) {
-            return createNamePredicate(keyphrase);
-        } else if (presentPrefix.equals(PREFIX_REMARK)) {
-            return createRemarkPredicate(keyphrase);
-        }
-        throw new ParseException(
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE)
-        );
-    }
-
-    private static Predicate<Person> createNamePredicate(String keyphrase) throws ParseException {
-        return new NameContainsKeyphrasePredicate(keyphrase);
-    }
-
-    private static Predicate<Person> createRemarkPredicate(String keyphrase) throws ParseException {
-        return new RemarkContainsKeyphrasePredicate(keyphrase);
-    }
-    public static void validKeyphrase(String keyphrase) throws ParseException {
-        if (keyphrase.isEmpty()) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
-        }
-    }
 }
