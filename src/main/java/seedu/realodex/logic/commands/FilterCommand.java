@@ -1,6 +1,8 @@
 package seedu.realodex.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.realodex.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.realodex.logic.parser.CliSyntax.PREFIX_REMARK;
 
 import java.util.function.Predicate;
 
@@ -18,15 +20,17 @@ public class FilterCommand extends Command {
 
     public static final String COMMAND_WORD = "filter";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters all clients whose names contain "
-            + "the specified keyphrase (case-insensitive) and displays them as a list with index numbers.\n"
-            + "Parameters: KEYPHRASE (Non-empty String)\n"
-            + "Example: " + COMMAND_WORD + " alice tan";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters all clients by specified field (name, remark) "
+            + "with the specified keyphrase (non-empty, case-insensitive) and displays them as a list with index numbers.\n"
+            + "Parameters: "
+            + "[" + PREFIX_NAME + "KEYPHRASE] "
+            + "[" + PREFIX_REMARK + "REMARK]\n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_NAME + "alice tan";
 
-    public static final String MESSAGE_FIND_HELP = "Filter Command: Filters clients whose names contain "
-            + "the specified keyphrase (case-insensitive) and displays them as a list with index numbers.\n"
-            + "Format: filter KEYPHRASE\n"
-            + "Example: filter Jus\n";
+    public static final String MESSAGE_FIND_HELP = "Filter Command: Filters clients by specified field (name, remark)"
+            + "with the specified keyphrase (non-empty, case-insensitive) and displays them as a list with index numbers.\n"
+            + "Format: filter [n/KEYPHRASE] [r/KEYPHRASE]\n"
+            + "Example: filter n/Jus\n";
 
     public static final String MESSAGE_FILTER_CONFLICT = "Filter command can only filter by one field.\n";
 
