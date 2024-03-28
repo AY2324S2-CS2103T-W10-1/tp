@@ -66,6 +66,10 @@ public class RemarkContainsKeyphrasePredicateTest {
         // Mixed-case keyphrase
         predicate = new RemarkContainsKeyphrasePredicate("tHiS dOEs NoT lOoK aCoUstIc");
         assertTrue(predicate.test(new PersonBuilder().withRemark("this does not look acoustic").build()));
+
+        // Symbols in keyphrase
+        predicate = new RemarkContainsKeyphrasePredicate("tH1S d0e$ nOt L0ok @cOu$t1c");
+        assertTrue(predicate.test(new PersonBuilder().withRemark("tH1S d0e$ nOt L0ok @cOu$t1c").build()));
     }
 
     @Test
