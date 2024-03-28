@@ -10,8 +10,8 @@ import static seedu.realodex.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.realodex.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
-import seedu.realodex.logic.parser.exceptions.ParseException;
 
+import seedu.realodex.logic.parser.exceptions.ParseException;
 
 public class PrefixCheckerTest {
 

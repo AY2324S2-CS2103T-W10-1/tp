@@ -1,14 +1,17 @@
 package seedu.realodex.model.person.predicate;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
+
 import seedu.realodex.model.person.Person;
 import seedu.realodex.model.person.predicates.NameContainsKeyphrasePredicate;
 import seedu.realodex.model.person.predicates.RemarkContainsKeyphrasePredicate;
 import seedu.realodex.testutil.PersonBuilder;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class RemarkContainsKeyphrasePredicateTest {
 
@@ -17,21 +20,25 @@ public class RemarkContainsKeyphrasePredicateTest {
         String firstPredicateKeyphrase = "first";
         String secondPredicateKeyphrase = "first second";
 
-        RemarkContainsKeyphrasePredicate firstPredicate = new RemarkContainsKeyphrasePredicate(firstPredicateKeyphrase);
-        RemarkContainsKeyphrasePredicate secondPredicate = new RemarkContainsKeyphrasePredicate(secondPredicateKeyphrase);
+        RemarkContainsKeyphrasePredicate firstPredicate =
+                new RemarkContainsKeyphrasePredicate(firstPredicateKeyphrase);
+        RemarkContainsKeyphrasePredicate secondPredicate =
+                new RemarkContainsKeyphrasePredicate(secondPredicateKeyphrase);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        RemarkContainsKeyphrasePredicate firstPredicateCopy = new RemarkContainsKeyphrasePredicate(firstPredicateKeyphrase);
+        RemarkContainsKeyphrasePredicate firstPredicateCopy =
+                new RemarkContainsKeyphrasePredicate(firstPredicateKeyphrase);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false
         assertFalse(firstPredicate.equals(1));
 
         //different predicate type -> returns false
-        NameContainsKeyphrasePredicate copy = new NameContainsKeyphrasePredicate(firstPredicateKeyphrase);
+        NameContainsKeyphrasePredicate copy =
+                new NameContainsKeyphrasePredicate(firstPredicateKeyphrase);
         assertFalse(firstPredicate.equals(copy));
 
         // null -> returns false

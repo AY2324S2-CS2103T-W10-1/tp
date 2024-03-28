@@ -2,7 +2,6 @@ package seedu.realodex.logic.parser;
 
 import static seedu.realodex.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.realodex.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.realodex.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.realodex.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.realodex.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -39,31 +38,36 @@ public class FilterCommandParserTest {
     @Test
     void parse_invalidArgs_throwsParseException() {
         String userInput = " invalidArg";
-        assertParseFailure(parser, userInput, String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, userInput,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
     }
 
     @Test
     void parse_invalidPrefix_throwsParseException() {
         String userInput = " p/999";
-        assertParseFailure(parser, userInput, String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, userInput,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
     }
 
     @Test
     void parse_multiplePrefixes_throwsParseException() {
         String userInput = " n/Alice r/Loves cats";
-        assertParseFailure(parser, userInput, String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_FILTER_CONFLICT));
+        assertParseFailure(parser, userInput,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_FILTER_CONFLICT));
     }
 
     @Test
     void parse_multiplePrefixesWithEmptyRemark_throwsParseException() {
         String userInput = " n/Alice r/";
-        assertParseFailure(parser, userInput, String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_FILTER_CONFLICT));
+        assertParseFailure(parser, userInput,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_FILTER_CONFLICT));
     }
 
     @Test
     void parse_multiplePrefixesWithEmptyName_throwsParseException() {
         String userInput = " n/ r/Loves cats";
-        assertParseFailure(parser, userInput, String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_FILTER_CONFLICT));
+        assertParseFailure(parser, userInput,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_FILTER_CONFLICT));
     }
     @Test
     void parse_duplicatePrefixes_throwsParseException() {
@@ -75,7 +79,8 @@ public class FilterCommandParserTest {
     @Test
     void parse_emptyPreamble_throwsParseException() {
         String userInput = " yapyap n/Alice";
-        assertParseFailure(parser, userInput, String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, userInput,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
     }
 
 }
