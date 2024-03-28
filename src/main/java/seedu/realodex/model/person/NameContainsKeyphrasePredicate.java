@@ -3,6 +3,10 @@ package seedu.realodex.model.person;
 import java.util.function.Predicate;
 
 import seedu.realodex.commons.util.ToStringBuilder;
+import seedu.realodex.logic.commands.FilterCommand;
+import seedu.realodex.logic.parser.exceptions.ParseException;
+
+import static seedu.realodex.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 /**
  * Tests that a {@code Person}'s {@code Name} contains the keyphrase given.
@@ -40,4 +44,5 @@ public class NameContainsKeyphrasePredicate implements Predicate<Person> {
     public String toString() {
         return new ToStringBuilder(this).add("keyphrase", keyphrase).toString();
     }
+
 }

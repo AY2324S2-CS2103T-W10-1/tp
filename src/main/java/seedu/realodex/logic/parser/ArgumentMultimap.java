@@ -80,4 +80,13 @@ public class ArgumentMultimap {
             throw new ParseException(Messages.getErrorMessageForDuplicatePrefixes(duplicatedPrefixes));
         }
     }
+
+    public Prefix findPresentPrefix(Prefix...prefixes) {
+        for (Prefix prefix : prefixes) {
+            if (this.getValue(prefix).isPresent()) {
+                return prefix;
+            }
+        }
+        return null;
+    }
 }
