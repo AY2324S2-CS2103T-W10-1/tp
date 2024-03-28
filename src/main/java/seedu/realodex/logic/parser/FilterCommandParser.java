@@ -57,7 +57,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
     }
 
     private void checkNoDuplicatePrefix(PrefixChecker prefixChecker) throws ParseException {
-        prefixChecker.checkNoDuplicatePrefix();
+        prefixChecker.checkNoDuplicatePrefix(POSSIBLE_PREFIXES);
     }
 
 }

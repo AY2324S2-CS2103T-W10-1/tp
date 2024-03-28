@@ -1,5 +1,6 @@
 package seedu.realodex.logic.parser;
 
+import seedu.realodex.logic.Messages;
 import seedu.realodex.logic.parser.exceptions.ParseException;
 
 import java.util.stream.Stream;
@@ -26,20 +27,20 @@ public class PrefixChecker {
         return argumentMultimap.getPreamble().isEmpty();
     }
 
-    public void checkNoDuplicatePrefix() throws ParseException {
-        argumentMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_REMARK);
-    }
+    public void checkNoDuplicatePrefix(Prefix...prefixes) throws ParseException {
+        Prefix[] duplicatedPrefixes = Stream.of(prefixes).distinct()
+                .filter(prefix -> argumentMultimap.containsPrefix(prefix) && argumentMultimap.getAllValues(prefix).size() > 1)
+                .toArray(Prefix[]::new);
 
-    //this will always return false for empty `r/` field
-    public boolean isPrefixPresent(Prefix prefix) {
-        if (prefix.equals(PREFIX_REMARK)) {
-            return argumentMultimap.getValue(prefix).map(value -> !value.trim().isEmpty()).orElse(false);
-        } else {
-            return argumentMultimap.getValue(prefix).isPresent();
+        if (duplicatedPrefixes.length > 0) {
+            throw new ParseException(Messages.getErrorMessageForDuplicatePrefixes(duplicatedPrefixes));
         }
     }
 
-    //this will always return false for empty `r/` field
+    public boolean isPrefixPresent(Prefix prefix) {
+        return argumentMultimap.containsPrefix(prefix);
+    }
+
     public Prefix findPresentPrefix(Prefix...prefixes) {
         for (Prefix prefix : prefixes) {
             if (isPrefixPresent(prefix)) {
