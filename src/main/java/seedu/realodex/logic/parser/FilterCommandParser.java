@@ -17,6 +17,7 @@ import seedu.realodex.model.person.predicates.PredicateProducer;
  */
 public class FilterCommandParser implements Parser<FilterCommand> {
 
+    private static final Prefix[] POSSIBLE_PREFIXES = { PREFIX_NAME, PREFIX_REMARK };
     /**
      * Parses the given {@code String} of arguments in the context of the FilterCommand
      * and returns a FilterCommand object for execution.
@@ -24,14 +25,14 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public FilterCommand parse(String args) throws ParseException {
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_REMARK);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, POSSIBLE_PREFIXES);
         PrefixChecker prefixChecker = new PrefixChecker(argMultimap);
 
         checkEmptyPreamble(prefixChecker);
         checkOnlyOnePrefixPresent(prefixChecker);
         checkNoDuplicatePrefix(prefixChecker);
 
-        Prefix presentPrefix = prefixChecker.findPresentPrefix(PREFIX_NAME, PREFIX_REMARK);
+        Prefix presentPrefix = prefixChecker.findPresentPrefix(POSSIBLE_PREFIXES);
         String keyphrase = argMultimap.getValue(presentPrefix).get().trim();
         PredicateProducer predicateProducer = new PredicateProducer();
         Predicate<Person> predicate = predicateProducer.createPredicate(presentPrefix, keyphrase);
@@ -40,10 +41,10 @@ public class FilterCommandParser implements Parser<FilterCommand> {
     }
     private void checkOnlyOnePrefixPresent(PrefixChecker prefixChecker) throws ParseException {
         // Check for at least one prefix present and no empty preamble
-        if (!prefixChecker.anyPrefixesPresent(PREFIX_NAME, PREFIX_REMARK)) {
+        if (!prefixChecker.anyPrefixesPresent(POSSIBLE_PREFIXES)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
-        if (prefixChecker.moreThanOnePrefixPresent(PREFIX_NAME, PREFIX_REMARK)) {
+        if (prefixChecker.moreThanOnePrefixPresent(POSSIBLE_PREFIXES)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_FILTER_CONFLICT));
         }
     }
