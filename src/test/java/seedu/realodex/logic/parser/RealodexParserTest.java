@@ -20,8 +20,9 @@ import seedu.realodex.logic.commands.HelpCommand;
 import seedu.realodex.logic.commands.ListCommand;
 import seedu.realodex.logic.parser.exceptions.ParseException;
 import seedu.realodex.model.person.Name;
-import seedu.realodex.model.person.NameContainsKeyphrasePredicate;
 import seedu.realodex.model.person.Person;
+import seedu.realodex.model.person.predicates.NameContainsKeyphrasePredicate;
+import seedu.realodex.model.person.predicates.RemarkContainsKeyphrasePredicate;
 import seedu.realodex.testutil.EditPersonDescriptorBuilder;
 import seedu.realodex.testutil.PersonBuilder;
 import seedu.realodex.testutil.PersonUtil;
@@ -77,11 +78,19 @@ public class RealodexParserTest {
     }
 
     @Test
-    public void parseCommand_filter() throws Exception {
+    public void parseCommand_filterByName() throws Exception {
         String keyphrase = "foo bar baz";
         FilterCommand command = (FilterCommand) parser.parseCommand(
-                FilterCommand.COMMAND_WORD + " " + keyphrase);
+                FilterCommand.COMMAND_WORD + " n/" + keyphrase);
         assertEquals(new FilterCommand(new NameContainsKeyphrasePredicate(keyphrase)), command);
+    }
+
+    @Test
+    public void parseCommand_filterByRemark() throws Exception {
+        String keyphrase = "foo bar baz";
+        FilterCommand command = (FilterCommand) parser.parseCommand(
+                FilterCommand.COMMAND_WORD + " r/" + keyphrase);
+        assertEquals(new FilterCommand(new RemarkContainsKeyphrasePredicate(keyphrase)), command);
     }
 
     @Test

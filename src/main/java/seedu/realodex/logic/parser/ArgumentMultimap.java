@@ -1,5 +1,7 @@
 package seedu.realodex.logic.parser;
 
+import static seedu.realodex.logic.parser.CliSyntax.PREFIX_REMARK;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,12 +42,10 @@ public class ArgumentMultimap {
      */
     public Optional<String> getValue(Prefix prefix) {
         List<String> values = getAllValues(prefix);
+        if (prefix.equals(PREFIX_REMARK)) {
+            return values.isEmpty() ? Optional.of("") : Optional.of(values.get(values.size() - 1));
+        }
         return values.isEmpty() ? Optional.empty() : Optional.of(values.get(values.size() - 1));
-    }
-
-    public Optional<String> getRemarkValue(Prefix prefix) {
-        List<String> values = getAllValues(prefix);
-        return values.isEmpty() ? Optional.of("") : Optional.of(values.get(values.size() - 1));
     }
 
     /**
@@ -80,4 +80,17 @@ public class ArgumentMultimap {
             throw new ParseException(Messages.getErrorMessageForDuplicatePrefixes(duplicatedPrefixes));
         }
     }
+
+    /**
+     * Checks if the specified prefix is present in the argument multimap.
+     * This method is useful for determining if an argument associated
+     * with a particular prefix was provided by the user.
+     *
+     * @param prefix The {@link Prefix} to check for presence in the argument multimap.
+     * @return {@code true} if the prefix is present in the argument multimap, {@code false} otherwise.
+     */
+    public boolean containsPrefix(Prefix prefix) {
+        return argMultimap.containsKey(prefix);
+    }
+
 }

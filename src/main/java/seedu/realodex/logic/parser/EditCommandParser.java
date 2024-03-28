@@ -66,7 +66,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_TAG).isPresent()) {
             editPersonDescriptor.setTags(ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG)));
         }
-        if (argMultimap.getValue(PREFIX_REMARK).isPresent()) {
+        if (argMultimap.containsPrefix(PREFIX_REMARK)) {
             editPersonDescriptor.setRemark(ParserUtil.parseRemark(argMultimap.getValue(PREFIX_REMARK).get()));
         }
         if (!editPersonDescriptor.isAnyFieldEdited()) {

@@ -22,7 +22,7 @@ import seedu.realodex.model.person.Income;
 import seedu.realodex.model.person.Name;
 import seedu.realodex.model.person.Person;
 import seedu.realodex.model.person.Phone;
-import seedu.realodex.model.remark.Remark;
+import seedu.realodex.model.person.Remark;
 import seedu.realodex.model.tag.Tag;
 
 /**
@@ -61,7 +61,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Family family = ParserUtil.parseFamily(argMultimap.getValue(PREFIX_FAMILY).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
-        Remark remark = ParserUtil.parseRemark(argMultimap.getRemarkValue(PREFIX_REMARK).get());
+        Remark remark = ParserUtil.parseRemark(argMultimap.getValue(PREFIX_REMARK).get());
 
         Person person = new Person(name, phone, income, email, address, family, tagList, remark);
 
