@@ -1,12 +1,9 @@
-package seedu.realodex.model.person;
+package seedu.realodex.model.person.predicates;
 
 import java.util.function.Predicate;
 
 import seedu.realodex.commons.util.ToStringBuilder;
-import seedu.realodex.logic.commands.FilterCommand;
-import seedu.realodex.logic.parser.exceptions.ParseException;
-
-import static seedu.realodex.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import seedu.realodex.model.person.Person;
 
 /**
  * Tests that a {@code Person}'s {@code Name} contains the keyphrase given.

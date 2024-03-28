@@ -3,16 +3,15 @@ package seedu.realodex.logic.parser;
 import static seedu.realodex.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.realodex.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.realodex.logic.parser.CliSyntax.PREFIX_REMARK;
-import static seedu.realodex.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import seedu.realodex.logic.commands.FilterCommand;
 import seedu.realodex.logic.parser.exceptions.ParseException;
-import seedu.realodex.model.person.NameContainsKeyphrasePredicate;
+import seedu.realodex.model.person.predicates.NameContainsKeyphrasePredicate;
 import seedu.realodex.model.person.Person;
-import seedu.realodex.model.person.RemarkContainsKeyphrasePredicate;
+import seedu.realodex.model.person.predicates.RemarkContainsKeyphrasePredicate;
 
 /**
  * Parses input arguments and creates a new FilterCommand object
@@ -75,7 +74,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
     public static boolean isPrefixPresent(ArgumentMultimap argumentMultimap, Prefix prefix) {
         if (prefix.equals(PREFIX_REMARK)) {
             // For the remark prefix, consider it present if the returned string is not empty
-            return argumentMultimap.getValue(prefix).map(value -> !value.isEmpty()).orElse(false);
+            return argumentMultimap.getValue(prefix).map(value -> !value.equals("")).orElse(false);
         } else {
             // For all other prefixes, use the standard presence check
             return argumentMultimap.getValue(prefix).isPresent();

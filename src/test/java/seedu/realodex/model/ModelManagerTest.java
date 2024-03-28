@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 import org.junit.jupiter.api.Test;
 
 import seedu.realodex.commons.core.GuiSettings;
-import seedu.realodex.model.person.NameContainsKeyphrasePredicate;
+import seedu.realodex.model.person.predicates.NameContainsKeyphrasePredicate;
 import seedu.realodex.testutil.RealodexBuilder;
 
 public class ModelManagerTest {

@@ -20,7 +20,7 @@ import seedu.realodex.logic.commands.HelpCommand;
 import seedu.realodex.logic.commands.ListCommand;
 import seedu.realodex.logic.parser.exceptions.ParseException;
 import seedu.realodex.model.person.Name;
-import seedu.realodex.model.person.NameContainsKeyphrasePredicate;
+import seedu.realodex.model.person.predicates.NameContainsKeyphrasePredicate;
 import seedu.realodex.model.person.Person;
 import seedu.realodex.testutil.EditPersonDescriptorBuilder;
 import seedu.realodex.testutil.PersonBuilder;

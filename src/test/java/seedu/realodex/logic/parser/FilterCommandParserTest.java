@@ -7,7 +7,7 @@ import static seedu.realodex.logic.parser.CommandParserTestUtil.assertParseSucce
 import org.junit.jupiter.api.Test;
 
 import seedu.realodex.logic.commands.FilterCommand;
-import seedu.realodex.model.person.NameContainsKeyphrasePredicate;
+import seedu.realodex.model.person.predicates.NameContainsKeyphrasePredicate;
 
 public class FilterCommandParserTest {
 

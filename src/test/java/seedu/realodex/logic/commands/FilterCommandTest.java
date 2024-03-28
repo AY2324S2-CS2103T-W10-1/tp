@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import seedu.realodex.model.Model;
 import seedu.realodex.model.ModelManager;
 import seedu.realodex.model.UserPrefs;
-import seedu.realodex.model.person.NameContainsKeyphrasePredicate;
+import seedu.realodex.model.person.predicates.NameContainsKeyphrasePredicate;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FilterCommand}.

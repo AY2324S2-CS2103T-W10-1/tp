@@ -1,8 +1,9 @@
-package seedu.realodex.model.person;
+package seedu.realodex.model.person.predicates;
 
 import java.util.function.Predicate;
 
 import seedu.realodex.commons.util.ToStringBuilder;
+import seedu.realodex.model.person.Person;
 
 /**
  * Tests that a {@code Person}'s {@code Remark} contains the keyphrase given.
