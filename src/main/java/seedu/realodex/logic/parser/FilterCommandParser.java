@@ -50,13 +50,8 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      */
     private static boolean anyPrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).anyMatch(prefix -> {
-            if (prefix.equals(PREFIX_REMARK)) {
-                // For the remark prefix, consider it present if the returned string is not empty
-                return argumentMultimap.getRemarkValue(prefix).map(value -> !value.isEmpty()).orElse(false);
-            } else {
                 // For all other prefixes, use the standard presence check
                 return argumentMultimap.getValue(prefix).isPresent();
-            }
         });
     }
 
@@ -66,13 +61,8 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      */
     private static boolean moreThanOnePrefixPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         long count = Stream.of(prefixes).filter(prefix -> {
-            if (prefix.equals(PREFIX_REMARK)) {
-                // For the remark prefix, consider it present if the returned string is not empty
-                return argumentMultimap.getRemarkValue(prefix).map(value -> !value.isEmpty()).orElse(false);
-            } else {
                 // For all other prefixes, use the standard presence check
                 return argumentMultimap.getValue(prefix).isPresent();
-            }
         }).count();
         return count > 1;
     }
@@ -84,7 +74,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
     private static boolean isPrefixPresent(ArgumentMultimap argumentMultimap, Prefix prefix) {
         if (prefix.equals(PREFIX_REMARK)) {
             // For the remark prefix, consider it present if the returned string is not empty
-            return argumentMultimap.getRemarkValue(prefix).map(value -> !value.isEmpty()).orElse(false);
+            return argumentMultimap.getValue(prefix).map(value -> !value.isEmpty()).orElse(false);
         } else {
             // For all other prefixes, use the standard presence check
             return argumentMultimap.getValue(prefix).isPresent();
@@ -99,7 +89,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
             }
             return new NameContainsKeyphrasePredicate(keyphrase);
         } else if (isPrefixPresent(argumentMultimap, PREFIX_REMARK)) {
-            String keyphrase = argumentMultimap.getRemarkValue(PREFIX_REMARK).get().trim();
+            String keyphrase = argumentMultimap.getValue(PREFIX_REMARK).get().trim();
             if (keyphrase.isEmpty()) {
                 throw new ParseException(
                         String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
