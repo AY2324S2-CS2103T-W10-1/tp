@@ -25,62 +25,38 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      */
     public FilterCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_REMARK);
+        PrefixChecker prefixChecker = new PrefixChecker(argMultimap);
 
-        //if no name prefix and no tag prefix to add more soon
-        if (!anyPrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_REMARK) || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
-        } else if (moreThanOnePrefixPresent(argMultimap, PREFIX_NAME, PREFIX_REMARK)) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_FILTER_CONFLICT)
-            );
-        }
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_REMARK);
+        checkEmptyPreamble(prefixChecker);
+        checkOnlyOnePrefixPresent(prefixChecker);
+        checkNoDuplicatePrefix(prefixChecker);
 
-        Prefix presentPrefix = argMultimap.findPresentPrefix(PREFIX_NAME, PREFIX_REMARK);
+        Prefix presentPrefix = prefixChecker.findPresentPrefix(PREFIX_NAME, PREFIX_REMARK);
         String keyphrase = argMultimap.getValue(presentPrefix).get().trim();
         PredicateProducer predicateProducer = new PredicateProducer();
         Predicate<Person> predicate = predicateProducer.createPredicate(presentPrefix, keyphrase);
 
         return new FilterCommand(predicate);
     }
-
-
-    /**
-     * Returns true if some of the prefixes contains non-empty {@code Optional} values in the given
-     * {@code ArgumentMultimap}.
-     */
-    public static boolean anyPrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
-        return Stream.of(prefixes).anyMatch(prefix -> {
-            // For all other prefixes, use the standard presence check
-            return argumentMultimap.getValue(prefix).isPresent();
-        });
-    }
-
-    /**
-     * Returns true if multiple prefixes contains non-empty {@code Optional} values in the given
-     * {@code ArgumentMultimap}.
-     */
-    public static boolean moreThanOnePrefixPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
-        long count = Stream.of(prefixes).filter(prefix -> {
-            // For all other prefixes, use the standard presence check
-            return isPrefixPresent(argumentMultimap, prefix);
-        }).count();
-        return count > 1;
-    }
-
-    /**
-     * Returns true if there is a PREFIX_NAME in the given
-     * {@code ArgumentMultimap}.
-     */
-    public static boolean isPrefixPresent(ArgumentMultimap argumentMultimap, Prefix prefix) {
-        if (prefix.equals(PREFIX_REMARK)) {
-            // For the remark prefix, consider it present if the returned string is not empty
-            return argumentMultimap.getValue(prefix).map(value -> !value.equals("")).orElse(false);
-        } else {
-            // For all other prefixes, use the standard presence check
-            return argumentMultimap.getValue(prefix).isPresent();
+    private void checkOnlyOnePrefixPresent(PrefixChecker prefixChecker) throws ParseException {
+        // Check for at least one prefix present and no empty preamble
+        if (!prefixChecker.anyPrefixesPresent(PREFIX_NAME, PREFIX_REMARK)) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
+        if (prefixChecker.moreThanOnePrefixPresent(PREFIX_NAME, PREFIX_REMARK)) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_FILTER_CONFLICT));
+        }
+    }
+
+    private void checkEmptyPreamble(PrefixChecker prefixChecker) throws ParseException {
+        // Check for at least one prefix present and no empty preamble
+        if (!prefixChecker.checkEmptyPreamble()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+        }
+    }
+
+    private void checkNoDuplicatePrefix(PrefixChecker prefixChecker) throws ParseException {
+        prefixChecker.checkNoDuplicatePrefix();
     }
 
 }

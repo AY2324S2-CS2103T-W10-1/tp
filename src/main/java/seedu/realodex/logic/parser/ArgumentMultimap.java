@@ -81,13 +81,4 @@ public class ArgumentMultimap {
         }
     }
 
-    //this will always return true for the PREFIX_REMARK due to its special nature
-    public Prefix findPresentPrefix(Prefix...prefixes) {
-        for (Prefix prefix : prefixes) {
-            if (this.getValue(prefix).isPresent()) {
-                return prefix;
-            }
-        }
-        return null;
-    }
 }
