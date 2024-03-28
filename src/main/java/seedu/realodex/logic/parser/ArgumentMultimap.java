@@ -1,5 +1,7 @@
 package seedu.realodex.logic.parser;
 
+import static seedu.realodex.logic.parser.CliSyntax.PREFIX_REMARK;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,8 +11,6 @@ import java.util.stream.Stream;
 
 import seedu.realodex.logic.Messages;
 import seedu.realodex.logic.parser.exceptions.ParseException;
-
-import static seedu.realodex.logic.parser.CliSyntax.PREFIX_REMARK;
 
 /**
  * Stores mapping of prefixes to their respective arguments.
@@ -81,6 +81,14 @@ public class ArgumentMultimap {
         }
     }
 
+    /**
+     * Checks if the specified prefix is present in the argument multimap.
+     * This method is useful for determining if an argument associated
+     * with a particular prefix was provided by the user.
+     *
+     * @param prefix The {@link Prefix} to check for presence in the argument multimap.
+     * @return {@code true} if the prefix is present in the argument multimap, {@code false} otherwise.
+     */
     public boolean containsPrefix(Prefix prefix) {
         return argMultimap.containsKey(prefix);
     }
