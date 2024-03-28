@@ -81,4 +81,8 @@ public class ArgumentMultimap {
         }
     }
 
+    public boolean containsPrefix(Prefix prefix) {
+        return argMultimap.containsKey(prefix);
+    }
+
 }
