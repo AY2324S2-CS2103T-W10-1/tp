@@ -1,0 +1,17 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+
+Interface Parser {
+  +parse(args: String)
+}
+Class FilterCommandParser {
+  +parse(args: String): FilterCommand
+}
+Class ParseException
+
+FilterCommandParser -up-|> Parser
+FilterCommandParser .right.> ParseException: throws >
+
+note right of FilterCommandParser: Implements Parser<FilterCommand>
+@enduml
