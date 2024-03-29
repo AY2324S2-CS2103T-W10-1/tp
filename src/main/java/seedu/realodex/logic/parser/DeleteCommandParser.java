@@ -33,6 +33,9 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
             ParserUtilResult<Name> name = ParserUtil.parseNameReturnStored(argMultimap.getValue(PREFIX_NAME)
                     .orElseThrow());
+            if (!name.returnExceptionMessage().isEmpty()) {
+                throw new ParseException(name.returnExceptionMessage());
+            }
             return name.returnStoredResult();
         }
         return null;
