@@ -21,7 +21,9 @@ Class Name
 Class Phone
 Class Family
 Class Tag
+Class HousingType
 Class Remark
+Class Birthday
 
 Class I #FFFFFF
 }
@@ -46,8 +48,10 @@ Person *--> "            1" Income
 Person *--> "1" Email
 Person *--> "1" Address
 Person *--> "1" Family
+Person *--> "1" HousingType
 Person *--> "   1..2" Tag
 Person *--> "   0..1" Remark
+Person *--> "   0..1" Birthday
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
