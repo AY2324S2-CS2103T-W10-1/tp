@@ -6,16 +6,28 @@
 
 # Realodex (RDX) User Guide
 
-Realodex (or RDX for short) is a **desktop app for managing client contacts, optimized for use via a
-Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
-If you can type fast, RDX can get your contact management tasks done faster than traditional GUI apps.
+**Realodex** is your ultimate client management tool  tailored specifically for the dynamic needs of real estate professionals. Designed to streamline the day-to-day operations of realtors, brokers, and real estate agencies, Realodex offers seamless functionality to ***add***, ***edit***, ***search***, and ***delete*** client information effortlessly.
+
+- **Add**: Quickly input new client data, from contact details to property preferences, building a rich, actionable database.
+- **Edit**: Easily update client information to keep profiles accurate and comprehensive, reflecting the latest changes in their needs or status.
+- **Search**: Instantly locate client profiles using robust filters, enabling swift responses and tailored service.
+- **Delete**: Safely remove outdated information, ensuring your database is current and compliant.
+
+With our intuitive interface and advanced features, real estate users can manage their client database with unprecedented ease, enhancing their productivity and enabling them to focus on what they do best: closing deals and building lasting relationships. Whether you're a seasoned real estate veteran or a rising star in the industry, Realodex is your partner in achieving operational excellence and superior client service.
+
+![Realodex](images/realodex.png)
+
+For veteran users in search of specific details, our table of contents provide direct access to the information you need. Alternatively, explore our detailed feature and prefix summary ***here*** for swift access.
+
+New to Realodex? Rest assured—this user guide delivers thorough documentation on utilizing Realodex’s current features, provides answers to frequently asked questions, and sheds light on future enhancements. Kickstart your journey by delving into the ***“Using This Guide” section***, crafted to guide you through the functionalities that will elevate your real estate endeavors.
+
 
 <!-- * Table of Contents -->
 <page-nav-print />
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Quick start
+# Quick start
 
 1. Ensure you have Java `11` or above installed in your computer.
 
@@ -38,7 +50,42 @@ command to run the application.<br>
 1. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
+# Using this Guide
 
+To ensure you have a smooth and intuitive experience, this guide utilizes specific formatting conventions and icons. Familiarizing yourself with these will enhance your understanding and efficiency as you navigate through the functionalities of Realodex.
+
+### Formatting Conventions
+| Formatting       | Meaning                                                                                                                                                                                                                          |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Bold**         | Used to draw attention to **key concepts and actions** you need to perform. When you see text in bold, it emphasises important information.                                                                                      |
+| _Italics_        | Reserved for introducing _new terms and phrases_ that are essential to understanding Realodex. <br> Italicized text may also appear in _subheadings_ beneath screenshots to succinctly describe what you're seeing in the image. |
+| `Code blocks`    | Actual commands that you may enter into the Realodex CLI will be referred to in these code blocks.                                                                                                                               |
+
+
+### Icon Legend
+
+| Icon | Meaning                                                                                                    |
+|------|------------------------------------------------------------------------------------------------------------|
+| 💡   | Tips, helpful suggestions and best practices to optimize the Realodex user experience experience.          |
+| ⚠️   | Warning for potential pitfalls or important considerations that could impact the Realodex user experience. |
+| 🗒️  | Additional Notes to keep track of in the features.                                                         |
+| 👀   | Upcoming Features to look out for. Stay tuned for exciting new features and enhancements in Realodex.      |
+
+### Glossary
+
+| Abbreviation/Nomenclature                                               | Meaning                                                                                                                                                                                                  |
+|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GUI (Graphical User Interface)                                          | It is the digital interface which you interact with when using Realodex!                                                                                                                                 |
+| GUI Components                                                          | A specific component of the GUI.                                                                                                                                                                         |
+| For more information on specific GUI components, refer to this section. |                                                                                                                                                                                                          |
+| CLI (Command Line Interface)                                            | A text-based user interface to interact with the application.                                                                                                                                            |
+| Command                                                                 | An input from you that tells Realodex to execute an action.                                                                                                                                              |
+| You can refer to the command summary here!                              |                                                                                                                                                                                                          |
+| Prefix                                                                  | Prefixes are like fields in a form you are required to fill up. They are information needed to be passes together with the command so that it can be executed. View our Prefix Summary for more details! |
+| Case-Sensitive                                                          | The casing of the alphabetic characters matters (e.g. “ReAlOdEx” is different from “realodex”                                                                                                            |
+| Case-Insensitive                                                        | The casing of the alphabetic characters does not matter (e.g. “ReAlOdEx” is taken to be same as “realodex”                                                                                               |
+
+---
 ## Features
 
 <box type="info" seamless>
