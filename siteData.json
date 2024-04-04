@@ -138,10 +138,10 @@
         "help-individual-commands-command-help": "Help (Individual Commands) : COMMAND help",
         "exiting-the-program-exit": "Exiting the program : exit",
         "file-data": "File Data",
-        "filtering-clients-by-income-and-more-coming-soon": "Filtering clients by income and more [coming soon...]",
+        "specific-formats-for-each-field": "Specific Formats for each field",
+        "command-summary": "Command summary",
         "faq": "FAQ",
-        "known-issues": "Known issues",
-        "command-summary": "Command summary"
+        "known-issues": "Known issues"
       },
       "headingKeywords": {}
     },
@@ -149,7 +149,7 @@
       "src": "index.md",
       "title": "",
       "headings": {
-        "addressbook-level-3": "AddressBook Level-3"
+        "realodex": "Realodex"
       },
       "headingKeywords": {}
     },
