@@ -116,14 +116,14 @@ command to run the application.<br>
 
 Adds a client to Realodex. 
 
-Format: `add n/NAME p/PHONE i/INCOME e/EMAIL a/ADDRESS f/FAMILY t/TAG h/HOUSINGTYPE [r/REMARK] [b/BIRTHDAY]`
+#### Format: `add n/NAME p/PHONE i/INCOME e/EMAIL a/ADDRESS f/FAMILY t/TAG h/HOUSINGTYPE [r/REMARK] [b/BIRTHDAY]`
 
 - n/NAME p/PHONE i/INCOME e/EMAIL a/ADDRESS f/FAMILY t/TAG h/HOUSINGTYPE are compulsory fields. 
   - If any of the above fields are missed out in the `add` command, you will receive an error message stating the compulsory fields that are missing in the add command.
   - For example, if only `n/NAME` and `i/INCOME` are present, you will be alerted that you are missing the fields `p/PHONE e/EMAIL a/ADDRESS f/FAMILY t/TAG h/HOUSINGTYPE`
-  - ![missing compulsory fields](missing_fields_error)
+  - ![missing compulsory fields](UserGuideImages/AddCommand/missing_fields_error)
 - Except `t/TAG`, there can only be one of each fields in the add command.
-  - ![excessive fields](excessive_fields)
+  - ![excessive fields](UserGuideImages/AddCommand/excessive_fields)
 - For `t/TAG`, you may input both `t/BUYER` and/or `t/SELLER` (case insensitive). 
   - If either tag is repeated more than once, for e.g. `t/BUYER t/BUYER`, the tag will only be recorded once and no error will be thrown. 
 - Note that `REMARK` and `BIRTHDAY` fields are optional, enclosed in `[]`.
@@ -133,11 +133,11 @@ Format: `add n/NAME p/PHONE i/INCOME e/EMAIL a/ADDRESS f/FAMILY t/TAG h/HOUSINGT
 - Refer to the [Specific Format Requirements](#specific-formats) for each field.
   - If any of the formats are violated, you will receive an error message detailing the fields with invalid formats.
   - For example, if name, phone and tag fields are in incorrect format, you will receive 3 error messages as shown.
-  - ![Error parsing fields](parsing_errors)
+  - ![Error parsing fields](UserGuideImages/AddCommand/parsing_errors)
 - You may input the parameters in any order (e.g. if the command specifies `n/NAME a/ADDRESS`, `a/ADDRESS n/NAME` is also acceptable).
 - You may not have duplicate persons with the same name in realodex.
   - If you try to add duplicate persons, you will get the error message "This client already exists in Realodex".
-  ![duplicate person](duplicate_person_error.png)
+  ![duplicate person](UserGuideImages/AddCommand/duplicate_person_error.png)
 
 Examples:
 * `add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02-25 f/4 t/Buyer h/HDB r/Owes $1000. b/27May2003`
