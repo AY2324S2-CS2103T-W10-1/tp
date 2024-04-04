@@ -1,4 +1,4 @@
-package seedu.realodex.model.person.predicate;
+package seedu.realodex.model.person.predicates;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import seedu.realodex.model.person.HousingType;
-import seedu.realodex.model.person.predicates.HousingTypeMatchPredicate;
 import seedu.realodex.testutil.PersonBuilder;
 
 

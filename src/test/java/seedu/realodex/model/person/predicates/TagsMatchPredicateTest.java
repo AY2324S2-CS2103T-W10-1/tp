@@ -1,4 +1,4 @@
-package seedu.realodex.model.person.predicate;
+package seedu.realodex.model.person.predicates;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -10,9 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.realodex.model.person.Person;
 import seedu.realodex.model.person.Tag;
-import seedu.realodex.model.person.predicates.TagsMatchPredicate;
 import seedu.realodex.testutil.PersonBuilder;
-
 
 public class TagsMatchPredicateTest {
 

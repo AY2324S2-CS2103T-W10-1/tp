@@ -162,29 +162,43 @@ Classes used by multiple components are in the `seedu.realodex.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
-``### Filter by Name feature
+### Overall Filter feature
 
 #### Implementation
+This feature enables users to filter and view persons in Realodex based on specified criteria such as name, remark, tag, birthday, and housing type.
+The key components involved are:
+
+- `FilterCommand`: Executes the filtering operation based on a provided predicate that encapsulates the filtering criteria.
+- `PrefixChecker`: Ensures the syntactic correctness of user inputs by verifying command prefixes. 
+Detects command format violations, and facilitates clear error messaging.
+- `FilterCommandParser`: Parses user input into a FilterCommand by identifying the filtering field and keyphrase. 
+- `PredicateProducer`: Generates specific predicates based on the identified field and keyphrase. 
+- `Predicates`: `NameContainsKeyphrasePredicate`, `RemarkContainsKeyphrasePredicate`, `TagsMatchPredicate`, `BirthdayIsInMonthPredicate`, and `HousingTypeMatchPredicate` 
+that determine if a person's attributes match the user-defined criteria.
+
+#### Filter Command Architecture
+<puml src="diagrams/filter/FilterFeatureArchitecture.puml" width="1000" />
+
+### Filter by Name feature
+
+#### Description
 
 The Filter by Name feature allows users to filter the list of persons in Realodex based on their names. 
-It is implemented using a predicate that checks if a person's name contains the keyphrase provided by the user. 
-The key components involved in this feature include:
-
-- FilterCommand: A command that, when executed, updates the filtered person list based on the predicate.
-- NameContainsKeyphrasePredicate: A predicate that tests whether a person's name contains the given keyphrase.
+This is implemented using the `NameContainsKeyphrasePredicate` that checks if a person's name contains the keyphrase provided by the user. 
 
 #### Example Usage Scenario
-1. The user launches the application and the Model is initialized with the initial list of persons. 
-2. The user executes the command filter n/John, intending to filter out persons whose names contain "John".
-3. `LogicManager` parses the command, creating a FilterCommand with a NameContainsKeyphrasePredicate initialized with "John".
-4. `FilterCommand` is executed, using the predicate to filter the list of persons.
-5. The UI is updated to show only the persons whose names contain "John".
+1. The user executes the command `filter n/John`, intending to filter out persons whose names contain "John". 
+2. The FilterCommandParser interprets the input, creating a FilterCommand with the `NameContainsKeyphrasePredicate`. 
+3. The `FilterCommand` applies the `NameContainsKeyphrasePredicate` predicate, updating the filtered person list to only include those whose names contain "John".
+4. The UI reflects this filtered list.
 
 #### Design considerations
 
 Aspect: Handling of partial names
 
-**Alternative 1 (current choice): Allow partial matches of names. For example, filter n/Jo will match "John", "Joanna", etc.**
+**Alternative 1 (current choice): Allow partial matches of names.**
+
+> For example, `filter n/Jo` returns persons with names "John", "Bonjovi", etc.
 
 Pros: More flexible search.
 
@@ -192,10 +206,118 @@ Cons: May return too many results for very short keyphrases.
 
 **Alternative 2: Require exact matches.**
 
+> For example, `filter n/Jo` only returns persons with names "Jo"
+
 Pros: Precise filtering.
 
 Cons: Less flexible; users must remember exact names.
-``
+
+### Filter by Remark Feature
+
+#### Description
+
+The Filter by Remark feature allows users to filter the list of persons in Realodex based on the remarks associated with them.
+This is implemented using the `RemarkContainsKeyphrasePredicate` that checks if a person's remarks includes the keyphrase provided by the user.
+
+#### Example Usage Scenario
+
+1. The user executes the command `filter r/Loves coding`, intending to filter out to filter out persons whose remarks include "Loves coding".
+2. The `FilterCommandParser` interprets the input, creating a FilterCommand with a `RemarkContainsKeyphrasePredicate`.
+3. The `FilterCommand` applies the `RemarkContainsKeyphrasePredicate` predicate, updating the filtered person list to only include those whose remarks contain "Loves coding".
+4. The UI reflects this filtered list.
+
+#### Design considerations
+
+Aspect: Handling of partial names
+
+**Alternative 1 (current choice): Allow partial matches for remarks.**
+
+> For example, `filter r/love` returns persons with remarks like "Loves coding" and "Has a lovely dog".
+
+Pros: More flexible search.
+
+Cons: May return too many results for common keyphrases.
+
+**Alternative 2: Require exact matches.**
+
+> For example, `filter r/Loves Coding` only returns persons with the exact remark "Loves coding".
+
+Pros: Ensures that only persons with specific remarks are listed, reducing clutter.
+
+Cons: Extremely limiting. Users must remember exact remarks.
+
+### Filter by Tag Feature
+
+#### Description
+
+The Filter by Tag feature allows users to filter the list of persons in Realodex based on their tags.
+This is implemented using the `TagsMatchPredicate` that checks whether a person's tags match the tag(s) specified by the user. 
+
+#### Example Usage Scenario
+
+1. The user executes the command `filter t/Buyer`, intending to filter out to filter out persons who are tagged as "Buyer".
+2. The `FilterCommandParser` interprets the input, creating a FilterCommand with a `TagsMatchPredicate`.
+3. The `FilterCommand` applies the `TagsMatchPredicate` predicate, updating the filtered person list to only include those who are tagged as "Buyer".
+4. The UI reflects this filtered list.
+
+**Alternative 1 (current choice): Allow inclusion of persons with matching tags, irrespective of other tags.**
+
+> For example, `filter t/Buyer` returns persons tagged as "Buyer", inclusing those tagged as "Buyer" and "Seller".
+
+Pros: Inclusive Search that returns anyone with the "Buyer" tag, increasing breadth of search outcomes.
+
+Cons: Reduced precision in cases where users want to find persons exclusively tagged with this specific tag.
+
+**Alternative 2: All tag inputs must strictly match without.**
+
+> For example, `filter t/Buyer` only returns persons tagged solely as "Buyer" and excludes persons tagged as both "Buyer" and "Seller".
+
+Pros: Increase precision of search results for targeted searches.
+
+Cons: Excludes potentially relevant persons who carry the specified tag alongside others.
+
+### Filter by Birthday Feature
+
+#### Implementation
+
+The Filter by Birthday feature allows users to filter the list of persons in Realodex based on their birthday month.
+This is implemented using the `BirthdayIsInMonthPredicate` that checks whether a person's birthday matches the month specified by the user.
+
+#### Example Usage Scenario
+
+1. The user executes the command `filter b/Jan`, intending to filter out to filter out persons with birthdays in January.
+2. The `FilterCommandParser` interprets the input, creating a FilterCommand with a `BirthdayIsInMonthPredicate`.
+3. The `FilterCommand` applies the `BirthdayIsInMonthPredicate` predicate, updating the filtered person list to only include those with birthday in January.
+4. The UI reflects this filtered list.
+
+**Alternative 1 (current choice): Filter by birthday month.**
+
+> For example, `filter b/Jan` returns all persons born in January, regardless of the day.
+
+Pros: Simplifies the birthday search process, making it easier to remember and use.
+
+Cons: Less precise, might include unwanted results from the entire month.
+
+**Alternative 2: Require exact birthday matches.**
+
+> For example, `filter b/1Jan` only returns persons born on January 1st.
+
+Pros: Increase precision of search results, finding persons with specific birth dates.
+
+Cons: Requires exact date knowledge, which may not always be available or remembered by users.
+
+### Filter by Housing Type Feature
+
+#### Implementation
+
+The Filter by Housing Type feature allows users to filter the list of persons in Realodex based on their preferred housing type.
+This is implemented using the `HousingTypeMatchPredicate` that checks whether a person's preferred housing type matches the housing type specified by the user.
+
+#### Example Usage Scenario
+1. The user executes the command `filter h/Condominium`, intending to filter out persons with a "Condominium" housing type preference.
+2. The `FilterCommandParser` interprets the input, creating a FilterCommand with a `HousingTypeMatchPredicate`.
+3. The `FilterCommand` applies the `HousingTypeMatchPredicate` predicate, updating the filtered person list to only include those with a "Condominium" housing type preference.
+4. The UI reflects this filtered list.
 
 ### Sort by Birthday feature
 

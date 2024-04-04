@@ -189,19 +189,107 @@ Examples:
 - `edit 1 p/999` will overwrite the 1st client's phone number to `999`.
 - `edit 2 n/Kylie  i/3333 f/5` will overwrite the 2nd client's name to `Kylie`, income to `3333` and family size to `5`.
 
-### Filtering clients : `filter`
+### Filtering clients: `filter`
 
-Filters the list of client with an input keyphrase.
+The filter command in Realodex allows you to narrow down your list of clients by specifying a keyphrase 
+related to one of the client's attributes: name, remark, tag, birthday month, or housing type.
+This feature is particularly useful when you need to focus on a
+subset of your client database that meets certain criteria.
 
-Format: `filter KEYPHRASE`
+>
+> When performing multiple filter operations in sequence, 
+> each new filter is applied to the original, full list of clients, not the subset produced by the previous filter. 
+> This approach ensures clarity and consistency in search results.
 
-- The search is case-insensitive. e.g `james` will match `James`
-- Partial words will still be matched e.g. `Udh` will match `Udhaya`
-- All persons' names containing the keyword will be returned e.g. `Al` will return `Alicia`, `Allysa`
+<u>Filter by Name format:</u> `filter n/KEYPHRASE`
 
-Example:
+- Returns the list of clients whose names contain the specified keyphrase.
+- Keyphrase input should be in valid format for names (alphanumeric) and non-empty.
+- The search is **case-insensitive**.
+  - `filter n/james` matches person with the name "James".
+- **Partial fragments** of names will still be matched.
+  - `filter n/Udh` matches a person with the name "Udhaya".
+- **Comprehensive searching**, returning all persons with names containing the keyphrase.
+  - `filter n/Al` returns persons named "Alicia", "Allysa", "Jamal".
+  
+![filterByNameScreenshot.png](images/filter/filterByNameScreenshot.png)
+<p align="center">
+  <em> <code>filter n/Li</code> returns persons with names like "Charlotte Oliveiro" and "David Li"</em>
+</p>
 
-- `filter Al` will list out persons whose name has `"Al"` inside, such as `"Alicia"`, `"Allysa"` and `"Jamal"`
+<u>Filter by Remark format:</u> `filter r/KEYPHRASE`
+
+- Returns the list of clients whose remarks include the specified keyphrase.
+- Keyphrase input should be non-empty. 
+This is an intentional design choice to ensure that the command is used for targeted searches, preventing the potential misinterpretation of an empty keyphrase as a request to list all clients.
+- Important: The remarks for the `filter r/` command must not contain any other prefixes to prevent parsing errors. 
+> The command `filter r/ my tag is t/buyer` would cause an error because the system interprets `t/` as the start of a new prefix.
+> To avoid this, ensure that the remark does not contain any spaces followed by slashes that could be misconstrued as additional prefixes.
+- The search is **case-insensitive**. 
+  - `filter r/FOOD` matches person with remark "He loves food."
+- **Partial fragments** of remarks will still be matched.
+  - `filter r/hand` matches person with remark "handsome".
+- **Comprehensive searching**, returning all persons' names containing the keyword .
+  - `filter r/love` returns persons with remarks "loves to travel", "has a lovely dog".
+
+![filterByRemarkScreenshot.png](images/filter/filterByRemarkScreenshot.png)
+<p align="center">
+  <em> <code>filter r/eat</code> returns persons with remarks like "Eats alot" and "Likes to eat nasi lemak ..."</em>
+</p>
+
+<u>Filter by Tag format:</u> `filter t/TAG`
+
+- Returns the list of clients with the specified tag(s).
+- Tag input should be valid and non-empty - "Buyer" or "Seller".
+- The search is **case-insensitive**.
+  - `filter t/buyer` matches person with tag "Buyer".
+- **Inclusive matching** of persons with multiple tags, as long as they possess the
+tag(s) specified in the input.
+  - `filter t/buyer` matches person with tags "Buyer" and "Seller".
+- Supports searching with **multiple tags**.
+  - `filter t/Buyer t/Seller` only returns persons with both "Buyer" and "Seller" tags.
+- **Comprehensive searching**, returning all persons' with the specified tag(s).
+    - `filter t/Seller` returns all persons tagged as "Seller".
+
+![filterByTagSeller.png](images/filter/filterByTagSeller.png)
+<p align="center">
+  <em> <code>filter t/seller</code> returns persons with "Seller" Tag</em>
+</p>
+
+![filterByTagBuyerSeller.png](images/filter/filterByTagBuyerSeller.png)
+<p align="center">
+  <em> <code>filter t/buyer t/seller</code> only returns persons with "Buyer" and "Seller" Tag</em>
+</p>
+
+<u>Filter by Birthday format:</u> `filter b/MONTH`
+
+- Returns the list of clients whose birthdays are in the specified month.
+- Month input should be a valid month in `MMM` format and non-empty.
+  - Filtering by month "September" should be `filter b/Sep`
+- The month input is **case-insensitive**.
+    - `filter b/SEP` matches person with Birthday in September.
+- **Comprehensive searching**, returning all persons with birthdays in the specified month.
+    - `filter b/Jan` returns all persons with birthday in January.
+- Persons who do not have a specified birthday will **not be included** in the search results.
+
+![filterByBirthday.png](images/filter/filterByBirthday.png)
+<p align="center">
+  <em> <code>filter b/Apr</code> returns persons with Birthday in April</em>
+</p>
+
+<u>Filter by Housing Type format:</u> `filter h/HOUSING_TYPE`
+
+- Returns the list of clients with the specified housing type preference.
+- Housing Type input should be valid and non-empty - "HDB", "Condominium", "Landed Property" or "Good Class Bungalow".
+- The search is **case-insensitive**.
+    - `filter h/hdb` matches person with housing type "HDB".
+- **Comprehensive searching**, returning all persons with the specified housing type.
+    - `filter h/Condominium` returns all persons with the "Condominium" preferred housing type.
+
+![filterByHousingType.png](images/filter/filterByHousingType.png)
+<p align="center">
+  <em> <code>filter h/Good Class Bungalow</code> returns persons with "Good Class Bungalow" Housing Type preference</em>
+</p>
 
 ### Listing clients : `list`
 

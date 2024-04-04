@@ -1,4 +1,4 @@
-package seedu.realodex.model.person.predicate;
+package seedu.realodex.model.person.predicates;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -17,10 +17,6 @@ import seedu.realodex.logic.parser.Prefix;
 import seedu.realodex.logic.parser.exceptions.ParseException;
 import seedu.realodex.model.person.HousingType;
 import seedu.realodex.model.person.Person;
-import seedu.realodex.model.person.predicates.HousingTypeMatchPredicate;
-import seedu.realodex.model.person.predicates.NameContainsKeyphrasePredicate;
-import seedu.realodex.model.person.predicates.PredicateProducer;
-import seedu.realodex.model.person.predicates.RemarkContainsKeyphrasePredicate;
 import seedu.realodex.testutil.PersonBuilder;
 
 class PredicateProducerTest {

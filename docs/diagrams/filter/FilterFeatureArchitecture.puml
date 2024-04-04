@@ -1,0 +1,47 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+Class "{abstract}\nCommand" as Command {
+  +execute(Model): CommandResult
+}
+Class FilterCommand {
+  +execute(Model): CommandResult
+}
+Class CommandException
+Class ParseException
+Class PrefixChecker {
+  +anyPrefixesPresent(Prefix...): boolean
+  +moreThanOnePrefixTypePresent(Prefix...): boolean
+  +checkEmptyPreamble(): boolean
+  +checkNoDuplicatePrefix(Prefix...): void
+}
+Class FilterCommandParser {
+  +parse(String): FilterCommand
+}
+Class PredicateProducer {
+  +createPredicate(Prefix, List<String>): Predicate<Person>
+}
+Class "{interface}\nPredicate<Person>" as Predicate
+Class NameContainsKeyphrasePredicate
+Class RemarkContainsKeyphrasePredicate
+Class TagsMatchPredicate
+Class BirthdayIsInMonthPredicate
+Class HousingTypeMatchPredicate
+
+FilterCommand -up-|> Command
+Command ..> CommandException: throws >
+FilterCommandParser ..> ParseException: throws >
+FilterCommandParser .down.> FilterCommand : creates
+FilterCommandParser .right.> PrefixChecker : uses
+PredicateProducer .down.> Predicate : produces
+FilterCommand .down.> Predicate : uses
+
+Predicate <|-down- NameContainsKeyphrasePredicate
+Predicate <|-down- RemarkContainsKeyphrasePredicate
+Predicate <|-down- TagsMatchPredicate
+Predicate <|-down- BirthdayIsInMonthPredicate
+Predicate <|-down- HousingTypeMatchPredicate
+
+@enduml
