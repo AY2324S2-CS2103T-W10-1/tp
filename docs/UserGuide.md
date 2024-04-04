@@ -79,11 +79,12 @@ command to run the application.<br>
 1. Some example commands you can try:
 
    * `add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02-25 f/4 h/HDB t/buyer r/Owes money.`
-   Adds a contact named `John Doe` to Realodex.
+   <br>➡ Adds a contact named `John Doe` to Realodex.
 
-   * `delete n/john doe` : Deletes the client with name `John Doe` from Realodex.
+   * `delete n/john doe`
+   <br>➡ Deletes the client with name `John Doe` from Realodex.
 
-1. Refer to the [Features](#features) below for details of each command.
+1. Congratulations! Your journey with Realodex has just begun. For more information on how to use each command, do refer to [Features](#features) below. We hope you stick around!
 
 --------------------------------------------------------------------------------------------------------------------
 
