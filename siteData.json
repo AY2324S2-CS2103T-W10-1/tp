@@ -130,7 +130,7 @@
       "src": "UserGuide.md",
       "title": "User Guide",
       "headings": {
-        "realodex-rdx-user-guide": "Realodex (RDX) User Guide",
+        "realodex-user-guide": "Realodex User Guide",
         "quick-start": "Quick start",
         "features": "Features",
         "adding-a-client-add": "Adding a client: add",
@@ -144,7 +144,7 @@
         "help-individual-commands-command-help": "Help (Individual Commands) : COMMAND help",
         "exiting-the-program-exit": "Exiting the program : exit",
         "file-data": "File Data",
-        "format-requirements": "Format Requirements",
+        "field-constraints": "Field Constraints",
         "command-summary": "Command summary",
         "faq": "FAQ",
         "known-issues": "Known issues"
