@@ -91,6 +91,7 @@ command to run the application.<br>
 # Features
 
 <box type="info" seamless>
+  <thumbnail circle slot="icon" text=":book:" background="#dff5ff" size="50"/>
 
 **Notes about the command format:**<br>
 
