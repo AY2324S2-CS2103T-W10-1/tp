@@ -144,7 +144,7 @@
         "help-individual-commands-command-help": "Help (Individual Commands) : COMMAND help",
         "exiting-the-program-exit": "Exiting the program : exit",
         "file-data": "File Data",
-        "specific-formats-for-each-field": "Specific Formats for each field",
+        "format-requirements": "Format Requirements",
         "command-summary": "Command summary",
         "faq": "FAQ",
         "known-issues": "Known issues"
