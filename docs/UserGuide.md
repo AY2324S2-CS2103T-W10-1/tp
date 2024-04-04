@@ -26,30 +26,6 @@ New to Realodex? Rest assured—this user guide delivers thorough documentation 
 <page-nav-print />
 
 --------------------------------------------------------------------------------------------------------------------
-
-# Quick start
-
-1. Ensure you have Java `11` or above installed in your computer.
-
-1. Download the latest `realodex.jar` from [here](https://github.com/AY2324S2-CS2103T-W10-1/tp/releases).
-
-1. Copy the file to the folder you want to use as the _home folder_ for your Realodex.
-
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar realodex.jar`
-command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
-
-1. Some example commands you can try:
-
-   * `add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02-25 f/4 h/HDB t/buyer r/Owes money.`
-   Adds a contact named `John Doe` to Realodex.
-
-   * `delete n/john doe` : Deletes the client with name `John Doe` from Realodex.
-
-1. Refer to the [Features](#features) below for details of each command.
-
---------------------------------------------------------------------------------------------------------------------
 # Using this Guide
 
 To ensure you have a smooth and intuitive experience, this guide utilizes specific formatting conventions and icons. Familiarizing yourself with these will enhance your understanding and efficiency as you navigate through the functionalities of Realodex.
@@ -85,8 +61,33 @@ To ensure you have a smooth and intuitive experience, this guide utilizes specif
 | Case-Sensitive                                                          | The casing of the alphabetic characters matters (e.g. “ReAlOdEx” is different from “realodex”                                                                                                            |
 | Case-Insensitive                                                        | The casing of the alphabetic characters does not matter (e.g. “ReAlOdEx” is taken to be same as “realodex”                                                                                               |
 
----
-## Features
+--------------------------------------------------------------------------------------------------------------------
+
+# Quick start
+
+1. Ensure you have Java `11` or above installed in your computer.
+
+1. Download the latest `realodex.jar` from [here](https://github.com/AY2324S2-CS2103T-W10-1/tp/releases).
+
+1. Copy the file to the folder you want to use as the _home folder_ for your Realodex.
+
+1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar realodex.jar`
+command to run the application.<br>
+   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+   ![Ui](images/Ui.png)
+
+1. Some example commands you can try:
+
+   * `add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02-25 f/4 h/HDB t/buyer r/Owes money.`
+   Adds a contact named `John Doe` to Realodex.
+
+   * `delete n/john doe` : Deletes the client with name `John Doe` from Realodex.
+
+1. Refer to the [Features](#features) below for details of each command.
+
+--------------------------------------------------------------------------------------------------------------------
+
+# Features
 
 <box type="info" seamless>
 
