@@ -132,6 +132,10 @@
       "headings": {
         "realodex-user-guide": "Realodex User Guide",
         "quick-start": "Quick start",
+        "using-this-guide": "Using this Guide",
+        "formatting-conventions": "Formatting Conventions",
+        "icon-legend": "Icon Legend",
+        "glossary": "Glossary",
         "features": "Features",
         "adding-a-client-add": "Adding a client: add",
         "deleting-a-client-delete": "Deleting a client : delete",
