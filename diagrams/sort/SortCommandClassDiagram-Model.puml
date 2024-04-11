@@ -1,0 +1,30 @@
+@startuml
+!include ../style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+Package SortCommand as SortCommand <<Rectangle>>{
+Class "<<interface>>\nReadOnlyRealodex" as ReadOnlyRealodex
+Class "<<interface>>\nModel" as Model
+Class Realodex
+Class ModelManager
+Class SortCommand
+
+
+
+
+
+
+Realodex .up.|> ReadOnlyRealodex
+
+ModelManager .up.|> Model
+Model .left.> ReadOnlyRealodex
+ModelManager -left-> "1" Realodex
+
+Realodex *--> "1" UniquePersonList
+
+
+
+SortCommand .up.> ModelManager
+@enduml

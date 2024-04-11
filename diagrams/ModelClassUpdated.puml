@@ -1,5 +1,5 @@
 @startuml
-!include style.puml
+!include style_show_member.puml
 skinparam arrowThickness 1.1
 skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
@@ -13,7 +13,18 @@ Class ModelManager
 Class UserPrefs
 
 Class UniquePersonList
-Class Person
+Class Person {
+    - Name
+    - Phone
+    - Income
+    - Email
+    - Address
+    - Family
+    - HousingType
+    - Tag
+    - Remark
+    - Birthday
+}
 
 
 Class I #FFFFFF
@@ -33,12 +44,6 @@ UserPrefs .up.|> ReadOnlyUserPrefs
 
 Realodex *--> "1" UniquePersonList
 UniquePersonList --> "~* all" Person
-
-
-Person -[hidden]up--> I
-UniquePersonList -[hidden]right-> I
-
-
 
 ModelManager --> "~* filtered" Person
 @enduml

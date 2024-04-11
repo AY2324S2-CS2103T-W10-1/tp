@@ -1,0 +1,52 @@
+@startuml
+group sd sort realodex by birthday
+!include ../style.puml
+
+skinparam ArrowFontStyle plain
+
+box Model #FFCCCC
+participant ":SortCommand" as SortCommand #FF1111
+participant ":Model" as Model #FF1111
+participant ":Realodex" as Realodex #FF1111
+participant ":UniquePersonsList" as UniquePersonsList #FF1111
+participant ":ObservableList<Person>" as ObservableList #FF1111
+end box
+
+[-> SortCommand : execute(model)
+activate SortCommand
+
+SortCommand -> Model: getRealodex()
+activate Model
+Model --> SortCommand
+deactivate Model
+
+SortCommand -> Realodex : getCopyOfInternalListOfUniquePersonsList()
+activate Realodex
+
+Realodex -> UniquePersonsList : getInternalListCopy()
+activate UniquePersonsList
+UniquePersonsList --> Realodex : copied list of persons
+deactivate UniquePersonsList
+
+Realodex --> SortCommand : copied list of persons
+deactivate Realodex
+
+SortCommand -> ObservableList : sort(new BirthdayComparator())
+activate ObservableList
+
+ObservableList -->  SortCommand:
+deactivate ObservableList
+
+SortCommand -> Realodex : setPersons(copied list of persons)
+activate Realodex
+
+Realodex --> SortCommand :
+deactivate Realodex
+
+
+
+
+[<--SortCommand :
+deactivate SortCommand
+end
+@enduml
