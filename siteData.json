@@ -58,6 +58,8 @@
         "filter-by-tag-feature": "Filter by Tag Feature",
         "filter-by-birthday-feature": "Filter by Birthday Feature",
         "filter-by-housing-type-feature": "Filter by Housing Type Feature",
+        "sort-by-birthday-feature": "Sort by Birthday feature",
+        "overall-help-feature": "Overall Help feature",
         "help-feature": "Help feature",
         "help-by-command-feature": "Help by command feature",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",

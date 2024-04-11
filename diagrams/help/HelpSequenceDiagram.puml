@@ -1,0 +1,65 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":RealodexParser" as RealodexParser LOGIC_COLOR
+participant ":HelpCommandParser" as HelpCommandParser LOGIC_COLOR
+participant "h:HelpCommand" as HelpCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("add help")
+activate LogicManager
+
+LogicManager -> RealodexParser : parseCommand("add help")
+activate RealodexParser
+
+create HelpCommandParser
+RealodexParser -> HelpCommandParser
+activate HelpCommandParser
+
+HelpCommandParser --> RealodexParser
+deactivate HelpCommandParser
+
+RealodexParser -> HelpCommandParser : parse("add")
+activate HelpCommandParser
+
+create HelpCommand
+HelpCommandParser -> HelpCommand
+activate HelpCommand
+
+HelpCommand --> HelpCommandParser : h
+deactivate HelpCommand
+
+HelpCommandParser --> RealodexParser : h
+deactivate HelpCommandParser
+HelpCommandParser -[hidden]-> RealodexParser
+destroy HelpCommandParser
+
+RealodexParser --> LogicManager : h
+deactivate RealodexParser
+
+LogicManager -> HelpCommand : execute(model)
+activate HelpCommand
+
+create CommandResult
+HelpCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> HelpCommand : r
+deactivate CommandResult
+
+HelpCommand --> LogicManager : r
+deactivate HelpCommand
+HelpCommand -[hidden]-> LogicManager : result
+destroy HelpCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

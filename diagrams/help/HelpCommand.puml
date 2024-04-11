@@ -1,0 +1,29 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+Class RealodexParser {
+}
+Class "{abstract}\nCommand" as Command {
+  +execute(Model): CommandResult
+}
+Class HelpCommand {
+-command:String
+  +execute(Model): CommandResult
+}
+
+Class CommandException
+Class ParseException
+
+Class HelpCommandParser {
+  +parse(String): HelpCommand
+}
+
+RealodexParser .right.> HelpCommandParser : creates
+HelpCommand -right-|> Command
+Command .down.> CommandException: throws >
+HelpCommandParser .down.> ParseException: throws >
+HelpCommandParser .right.> HelpCommand : creates
+
+@enduml
