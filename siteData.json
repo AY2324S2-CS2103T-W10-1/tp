@@ -51,6 +51,8 @@
         "storage-component": "Storage component",
         "common-classes": "Common classes",
         "implementation": "Implementation",
+        "overall-add-feature": "Overall Add feature",
+        "implementation-of-addcommand": "Implementation of AddCommand",
         "overall-sort-feature": "Overall Sort feature",
         "overall-filter-feature": "Overall Filter feature",
         "filter-by-name-feature": "Filter by Name feature",
