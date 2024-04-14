@@ -1,0 +1,70 @@
+@startuml
+!include ../style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":RealodexParser" as RealodexParser LOGIC_COLOR
+participant ":EditCommandParser" as EditCommandParser LOGIC_COLOR
+participant "d:DeleteCommand" as EditCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("edit n/name")
+activate LogicManager
+
+LogicManager -> RealodexParser : parseCommand("edit n/name")
+activate RealodexParser
+
+create EditCommandParser
+RealodexParser -> EditCommandParser
+activate EditCommandParser
+
+EditCommandParser --> RealodexParser
+deactivate EditCommandParser
+
+RealodexParser -> EditCommandParser : parse("name")
+activate EditCommandParser
+
+create EditCommand
+EditCommandParser -> EditCommand
+activate EditCommand
+
+EditCommand --> EditCommandParser :
+deactivate EditCommand
+
+EditCommandParser --> RealodexParser : d
+deactivate EditCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+EditCommandParser -[hidden]-> RealodexParser
+destroy EditCommandParser
+
+RealodexParser --> LogicManager : d
+deactivate RealodexParser
+
+LogicManager -> EditCommand : execute(m)
+activate EditCommand
+
+EditCommand -> Model : editPerson("name"))
+activate Model
+
+Model --> EditCommand
+deactivate Model
+
+create CommandResult
+EditCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> EditCommand
+deactivate CommandResult
+
+EditCommand --> LogicManager : r
+deactivate EditCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
