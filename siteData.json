@@ -138,31 +138,7 @@
     },
     {
       "src": "UserGuide.md",
-      "title": "User Guide",
-      "headings": {
-        "realodex-user-guide": "Realodex User Guide",
-        "quick-start": "Quick start",
-        "using-this-guide": "Using this Guide",
-        "formatting-conventions": "Formatting Conventions",
-        "icon-legend": "Icon Legend",
-        "glossary": "Glossary",
-        "features": "Features",
-        "adding-a-client-add": "Adding a client: add",
-        "deleting-a-client-delete": "Deleting a client : delete",
-        "editing-clients-edit": "Editing clients : edit",
-        "filtering-clients-filter": "Filtering clients: filter",
-        "listing-clients-list": "Listing clients : list",
-        "sort-sort": "Sort : sort",
-        "clearing-realodex-clearrealodex": "Clearing Realodex : clearRealodex",
-        "help-help": "Help : help",
-        "help-individual-commands-command-help": "Help (Individual Commands) : COMMAND help",
-        "exiting-the-program-exit": "Exiting the program : exit",
-        "file-data": "File Data",
-        "field-constraints": "Field Constraints",
-        "command-summary": "Command summary",
-        "faq": "FAQ",
-        "known-issues": "Known issues"
-      },
+      "headings": {},
       "headingKeywords": {}
     },
     {
