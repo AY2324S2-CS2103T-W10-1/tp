@@ -1,0 +1,112 @@
+@startuml
+!include ../style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":RealodexParser" as RealodexParser LOGIC_COLOR
+participant ":FilterCommandParser" as FilterCommandParser LOGIC_COLOR
+participant ":FilterCommand" as FilterCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant ":PrefixChecker" as PrefixChecker LOGIC_COLOR
+participant ":PredicateProducer" as PredicateProducer LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("filter...")
+activate LogicManager
+
+LogicManager -> RealodexParser : parseCommand("filter...")
+activate RealodexParser
+
+create FilterCommandParser
+RealodexParser -> FilterCommandParser : new
+activate FilterCommandParser
+
+FilterCommandParser --> RealodexParser
+deactivate FilterCommandParser
+
+RealodexParser -> FilterCommandParser : parse("filter...")
+activate FilterCommandParser
+
+create PrefixChecker
+FilterCommandParser -> PrefixChecker : new
+activate PrefixChecker
+
+PrefixChecker --> FilterCommandParser
+deactivate PrefixChecker
+
+FilterCommandParser -> PrefixChecker : checkEmptyPreamble(...)
+activate PrefixChecker
+
+PrefixChecker --> FilterCommandParser
+deactivate PrefixChecker
+
+FilterCommandParser -> PrefixChecker : anyPrefixesPresent(...)
+activate PrefixChecker
+
+PrefixChecker --> FilterCommandParser
+deactivate PrefixChecker
+
+FilterCommandParser -> PrefixChecker : moreThanOnePrefixTypePresent(...)
+activate PrefixChecker
+
+PrefixChecker --> FilterCommandParser
+deactivate PrefixChecker
+
+FilterCommandParser -> PrefixChecker : checkNoDuplicatePrefix(...)
+activate PrefixChecker
+
+PrefixChecker --> FilterCommandParser
+deactivate PrefixChecker
+
+create PredicateProducer
+FilterCommandParser -> PredicateProducer : new
+activate PredicateProducer
+
+PredicateProducer --> FilterCommandParser :
+deactivate PredicateProducer
+
+FilterCommandParser -> PredicateProducer : createPredicate(...)
+activate PredicateProducer
+
+PredicateProducer --> FilterCommandParser : predicate
+deactivate PredicateProducer
+
+create FilterCommand
+FilterCommandParser -> FilterCommand : new(predicate)
+activate FilterCommand
+
+FilterCommand --> FilterCommandParser : c
+deactivate FilterCommand
+
+FilterCommandParser --> RealodexParser : c
+deactivate FilterCommandParser
+
+RealodexParser --> LogicManager : c
+deactivate RealodexParser
+
+LogicManager -> FilterCommand : execute()
+activate FilterCommand
+
+FilterCommand -> Model : updateFilteredPersonList(predicate)
+activate Model
+
+Model --> FilterCommand
+deactivate Model
+
+create CommandResult
+FilterCommand -> CommandResult :
+activate CommandResult
+
+CommandResult --> FilterCommand
+deactivate CommandResult
+
+FilterCommand --> LogicManager : result
+deactivate FilterCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
