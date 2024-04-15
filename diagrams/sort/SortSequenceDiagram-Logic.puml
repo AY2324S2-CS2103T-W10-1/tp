@@ -5,7 +5,7 @@ skinparam ArrowFontStyle plain
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":RealodexParser" as RealodexParser LOGIC_COLOR
-participant "u:SortCommand" as SortCommand LOGIC_COLOR
+participant "s:SortCommand" as SortCommand LOGIC_COLOR
 participant "r:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
@@ -22,10 +22,10 @@ create SortCommand
 RealodexParser -> SortCommand
 activate SortCommand
 
-SortCommand --> RealodexParser
+SortCommand --> RealodexParser : s
 deactivate SortCommand
 
-RealodexParser --> LogicManager :
+RealodexParser --> LogicManager : s
 deactivate RealodexParser
 
 LogicManager -> SortCommand : execute(model)
