@@ -16,22 +16,22 @@
 **Realodex** is your ultimate client management tool tailored specifically for the **dynamic needs of real estate professionals**. 
 Realodex offers seamless functionality to ***add***, ***edit***, ***filter***, and ***delete*** client information efficiently, **optimising and streamlining your day-to-day operations** as real estate agents. 
 
-
 --------------------------------------------------------------------------------------------------------------------
+
 ## Why Choose Realodex?
 Realodex is **tailor-made for the real estate industry**, offering **custom tools and features** that align with the everyday workflows of real estate agents. 
 
-- **Enhanced Productivity 🚀**: Access and manage your client database efficiently. 
-- **Intuitive Interface & Features 🧠**: Our user-friendly interface is designed for quick learning, enabling you to navigate and utilise Realodex with ease.
-- **Focus on Core Goals 🤝**: Allows you to dedicate more time to closing deals and fostering client relationships.
+- **Enhanced Productivity** 🚀: Access and manage your client database efficiently. 
+- **Intuitive Interface & Features** 🧠: Our user-friendly interface is designed for quick learning, enabling you to navigate and utilise Realodex with ease.
+- **Focus on Core Goals** 🤝: Allows you to dedicate more time to closing deals and fostering client relationships.
 
 <box type="tip" header = "**New to Realodex?**">
 This guide provides a beginner-friendly introduction on Realodex's features, tutorial, and FAQ. <a href="#getting-started">Start</a> enhancing your real estate operations today!
 </box>
 
-<div style="page-break-after: always;"></div>
-
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Table of Contents
 
@@ -91,9 +91,10 @@ This guide provides a beginner-friendly introduction on Realodex's features, tut
    
 - [Known Issues](#known-issues)
 
+--------------------------------------------------------------------------------------------------------------------
+
 <div style="page-break-after: always;"></div>
 
---------------------------------------------------------------------------------------------------------------------
 ## Navigating this User Guide
 **Welcome** to the Realodex User Guide! 
 We hope this user guide empowers you with the knowledge and confidence to **unleash the full potential of Realodex**.
@@ -129,26 +130,28 @@ This guide also includes:
 - **Features**: Explore the **full capabilities of Realodex** in our detailed [Features](#features) section, designed to help you maximise your use of the application.
 - **FAQ**: Find **answers to common questions** and **helpful tips** in the [FAQ](#faq) section.
 
+<div style="page-break-after: always;"></div>
 
 #### Glossary
 
 This table provides **definitions** of **key terms and abbreviations** used throughout the Realodex user guide.
 
-| Abbreviation/Nomenclature      | Meaning                                                                                                                                                                  |
-|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| GUI (Graphical User Interface) | The **digital interface** through which you interact with Realodex.                                                                                                      |
-| CLI (Command Line Interface)   | A **text-based interface** that allows users to interact with the application using commands typed into a command prompt or terminal.                                    |
-| Command                        | An **instruction** given by the user that prompts Realodex to perform a specific action. See the [Command Summary](#command-summary) for more details.                   |
-| Prefix                         | Initial parts of commands in Realodex that **specify the type of information** to follow (e.g., `n/` for name). View our [Prefix Summary](#prefix-summary) for more details. |
-| Case-Sensitive                 | Indicates that the casing of letters **matters**; for example, “ReAlOdEx” would be recognized differently from “realodex”.                                                   |
-| Case-Insensitive               | Indicates that the casing of letters **does not affect** how they are interpreted; “ReAlOdEx” and “realodex” would be treated as the same.                                   |
-| Command Prompt                 | A command line interpreter application available in most Windows operating systems. It allows users to **execute commands** and scripts.                                     |
-| Terminal                       | The command line interface used in **Unix and MacOS** systems, allowing users to execute commands and scripts similar to Command Prompt in Windows.                          |
-| JSON File                      | The file format Realodex uses to **store client data.**                                                                                                                      |
+| Abbreviation/Nomenclature      | Meaning                                                                                                                                                                                        |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GUI (Graphical User Interface) | The **digital interface** through which you interact with Realodex.                                                                                                                            |
+| CLI (Command Line Interface)   | A **text-based interface** that allows users to interact with the application using commands typed into a command prompt or terminal.                                                          |
+| Command                        | An **instruction** given by the user that prompts Realodex to perform a specific action. See the [Command Summary](#command-summary) for more details.                                         |
+| Prefix                         | Initial parts of commands in Realodex that **specify the type of information** to follow (e.g., `n/` for name). View our [Field Constraints](#field-constraints) for more details on prefixes. |
+| Case-Sensitive                 | Indicates that the casing of letters **matters**; for example, “ReAlOdEx” would be recognized differently from “realodex”.                                                                     |
+| Case-Insensitive               | Indicates that the casing of letters **does not affect** how they are interpreted; “ReAlOdEx” and “realodex” would be treated as the same.                                                     |
+| Command Prompt                 | A command line interpreter application available in most Windows operating systems. It allows users to **execute commands** and scripts.                                                       |
+| Terminal                       | The command line interface used in **Unix and MacOS** systems, allowing users to execute commands and scripts similar to Command Prompt in Windows.                                            |
+| JSON File                      | The file format Realodex uses to **store client data.**                                                                                                                                        |
 
-<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Getting Started
 
@@ -224,6 +227,8 @@ Let’s get started!
   </div>
 <br>
 
+<div style="page-break-after: always;"></div>
+
 6. **Run Realodex**: Now enter `java -jar realodex.jar` to **run the application**.
    <br>
   <div style="display:flex; justify-content: center; align-items:center;">
@@ -238,12 +243,8 @@ You should see a _GUI_ similar to image below pop up.
   </div>
 <br>
 
-
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
-
-<div style="page-break-after: always;"></div>
-
----
 
 ### Introduction to Realodex GUI
 
@@ -261,9 +262,9 @@ The GUI is structured into several distinct components, each designed to **enhan
   <img src="images/navigating-gui/client_profile.png" alt="client profile" style="width:100%">
   </a>
 
-<div style="page-break-after: always;"></div>
-
 ---
+
+<div style="page-break-after: always;"></div>
 
 ### Realodex Tutorial
 **Welcome** to your first session with Realodex!
@@ -280,6 +281,8 @@ Follow along to get a feel of how Realodex works.
 - If this is your first time, some **sample entries** will be loaded for you.
 </box>
 
+<div style="page-break-after: always;"></div>
+
 2. **Adding a client.** Let us try to **add a new client** into Realodex. Run the following command:
 `
 add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02-25 f/4 t/buyer t/seller h/HDB r/Has 3 cats b/01May2009
@@ -289,7 +292,6 @@ add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02
    <img src="images/tutorial/AddJohnDoe.png" alt="duplicate person" style="width:70%">
    </a>
 <div style="text-align: center; font-style: italic;">New client John Doe has now been added!</div>
-
 <br>
 
 **Congratulations**, you have just added your first ever client into Realodex!
@@ -315,6 +317,8 @@ Let's search for our new client John, by simply keying in the command: `filter n
   </box>
 
 <br>
+
+<div style="page-break-after: always;"></div>
 
 4. **Listing all clients.** We are now done reviewing John Doe's details. 
 Let us **view the entire client list** again. To do this, simply enter the command: `list`.
@@ -346,6 +350,8 @@ Since John's index number is 7, enter the command `edit 7 i/88888`.
 - You may also **edit multiple fields** of a client at once.
   </box>
 
+<div style="page-break-after: always;"></div>
+
 6. **Deleting a client.** 
 We can also **remove client profiles** from Realodex. 
 Let us try deleting John Doe from the Realodex by entering `delete n/John Doe`. 
@@ -360,7 +366,7 @@ Let us try deleting John Doe from the Realodex by entering `delete n/John Doe`.
 - Notice that the client list has been **automatically modified** after John's deletion, with the last client now being Roy.
 </box>
 
-  7. **Getting Help.** Should you **need assistance** on any of the commands at anytime while using Realodex, simply enter the `help` command.
+  7. **Getting Help.** Should you **need assistance** on any of the commands at anytime while using Realodex, simply enter the `help` command and a help window will pop up!
      <a href="images/tutorial/HelpWindow.png" style="display: block; margin: 0 auto; text-align: center;">
      <img src="images/tutorial/HelpWindow.png" alt="duplicate person" style="width:70%">
      </a>
@@ -378,7 +384,7 @@ Let's try it out with `delete help`.
 **Congratulations**! You have finished the Realodex tutorial and are now ready to use Realodex. 
 Feel free to **continue exploring the in-depth features** of Realodex to fully leverage its capabilities in your real estate operations!
 
-<div style="page-break-after: always;"></div>
+-----
 
 ## Features
 
@@ -403,6 +409,8 @@ Parameters must follow the prefix they are associated with and are typically in 
 Commands typically follow this format: `COMMANDWORD PREFIX_ONE/UPPER_CASE PREFIX_TWO/UPPER_CASE ....` This structure helps in **executing specific actions** within the application.
 
 </box>
+
+---
 
 ### Adding a client: `add`
 
@@ -465,6 +473,8 @@ Commands typically follow this format: `COMMANDWORD PREFIX_ONE/UPPER_CASE PREFIX
 
 [//]: # (    </a>)
 
+<div style="page-break-after: always;"></div>
+
 **Example**:
 
 `add n/John Doe p/98765432 i/20000 e/johnd@example.com a/311, Clementi Ave 2, #02-25 f/4 t/Buyer h/HDB r/Owes $1000. b/27May2003`
@@ -496,22 +506,15 @@ Deletes the client with the specified `NAME`.
 
 `delete n/John Doe` deletes the client in Realodex with the name "John Doe".
 
+<a href="images/delete/before_execute_deletename.png" style="display: block; margin: 0 auto; text-align: center;">
+   <img src="images/delete/before_execute_deletename.png" alt="duplicate person" style="width:80%">
+   </a>
+<div style="text-align: center; font-style: italic;">Client list before entering command <code>delete n/John Doe</code></div>
 
-<p align="center">
-  <a href="images/delete/before_execute_deletename.png">
-  <img src="images/delete/before_execute_deletename.png" alt="before execute delete name" style="width:100%">
-  </a>
-  <em> Client list before entering command <code>delete n/John Doe</code></em>
-</p>
-
-
-<p align="center">
-  <a href="images/delete/after_execute_deletename.png">
-  <img src="images/delete/after_execute_deletename.png" alt="after execute delete name" style="width:100%">
-  </a>
-  <em> Client list after entering command <code>delete n/John Doe</code></em>
-</p>
-
+<a href="images/delete/after_execute_deletename.png" style="display: block; margin: 0 auto; text-align: center;">
+   <img src="images/delete/after_execute_deletename.png" alt="duplicate person" style="width:80%">
+   </a>
+<div style="text-align: center; font-style: italic;">Client list after entering command <code>delete n/John Doe</code></div>
 
 <box type="wrong" header="Error">
 
@@ -534,21 +537,16 @@ Deletes the client of the specified `INDEX`.
 
 `delete 3` deletes the 3rd client listed in Realodex, provided there are 3 or more entries.
 
-<p align="center">
-  <a href="images/delete/before_execute_deleteindex.png">
-  <img src="images/delete/before_execute_deleteindex.png" alt="before execute delete index" style="width:100%"> 
-  </a>
-  <em> Client list before entering command <code>delete 3</code></em>
-</p>
+<a href="images/delete/before_execute_deleteindex.png" style="display: block; margin: 0 auto; text-align: center;">
+   <img src="images/delete/before_execute_deleteindex.png" alt="duplicate person" style="width:80%">
+   </a>
+<div style="text-align: center; font-style: italic;">Client list before entering command <code>delete 3</code></div>
 
 
-<p align="center">
-  <a href="images/delete/after_execute_deleteindex.png"> 
-  <img src="images/delete/after_execute_deleteindex.png" alt="after execute delete index" style="width:100%"> 
-  </a>
-  <em> Client list after entering command <code>delete 3</code></em>
-</p>
-
+<a href="images/delete/after_execute_deleteindex.png" style="display: block; margin: 0 auto; text-align: center;">
+   <img src="images/delete/after_execute_deleteindex.png" alt="duplicate person" style="width:80%">
+   </a>
+<div style="text-align: center; font-style: italic;">Client list after entering command <code>delete 3</code></div>
 
 <box type="wrong" header="Error">
 
@@ -588,22 +586,15 @@ If there is **no client with the specified** `INDEX` in the current list, an err
 **Example:**
 `edit 2 n/Kylie  i/3333 f/5` will change the 2nd client's name to "Kylie", income to "3333" and family size to "5".
 
+<a href="images/edit/before_execute_edit.png" style="display: block; margin: 0 auto; text-align: center;">
+   <img src="images/edit/before_execute_edit.png" alt="duplicate person" style="width:80%">
+   </a>
+<div style="text-align: center; font-style: italic;">Client list before entering command <code>edit 2 n/Kylie  i/3333 f/5</code></div>
 
-<p align="center">
-  <a href="images/edit/before_execute_edit.png">
-  <img src="images/edit/before_execute_edit.png" alt="before execute edit" style="width:100%">
-  </a>
-  <em> Client list before entering command <code>edit 2 n/Kylie  i/3333 f/5</code></em>
-</p>
-
-
-<p align="center">
-  <a href="images/edit/after_execute_edit.png">
-  <img src="images/edit/after_execute_edit.png" alt="after execute edit" style="width:100%">
-  </a>
-  <em> Client list after entering command <code>edit 2 n/Kylie  i/3333 f/5</code></em>
-</p>
-
+<a href="images/edit/after_execute_edit.png" style="display: block; margin: 0 auto; text-align: center;">
+   <img src="images/edit/after_execute_edit.png" alt="duplicate person" style="width:80%">
+   </a>
+<div style="text-align: center; font-style: italic;">Client list after entering command <code>edit 2 n/Kylie  i/3333 f/5</code></div>
 
 [Back to Table of Contents](#table-of-contents)
 
@@ -661,6 +652,8 @@ This **includes** clients who may have **both "Buyer" and "Seller" tags.**
 Entering `filter t/Buyer t/Seller` will show only clients who are **tagged as both "Buyer" and "Seller"**.
   </box>
 
+<div style="page-break-after: always;"></div>
+
 **Examples:**
 
 `filter t/seller` will return a list of clients tagged as "Seller".
@@ -672,7 +665,6 @@ Entering `filter t/Buyer t/Seller` will show only clients who are **tagged as bo
     <em>Clients with "Seller" tag are returned.</em>
 </p>
 
----
 
 `filter t/buyer t/seller` will return a list of clients tagged as both "Buyer" and "Seller". 
 
@@ -682,6 +674,8 @@ Entering `filter t/Buyer t/Seller` will show only clients who are **tagged as bo
     </a>
     <em>Clients with both "Buyer" and "Seller" tags are returned.</em>
 </p>
+
+<div style="page-break-after: always;"></div>
 
 #### Filter By Housing Type
 Returns the list of clients with the **specified preferred housing type**.
@@ -719,17 +713,16 @@ Returns the list of clients whose **remarks include** the **specified keyphrase*
     - `filter r/hand` matches person with remark "<b>hand</b>some".
 </box>
 
+<div style="page-break-after: always;"></div>
+
 **Example:**
 
 `filter r/eat` will return a list of clients with remarks containing "eat".
 
-<p align="center">
-    <a href="images/filter/filterByRemarkScreenshot.png">
-    <img src="images/filter/filterByRemarkScreenshot.png" alt="filterByRemarkScreenshot" style="width:100%">
-    </a>
-    <em>Clients with remarks like "<b>Eat</b>s alot" and "Likes to <b>eat</b> nasi lemak" are returned.</em>
-</p>
-
+<a href="images/filter/filterByRemarkScreenshot.png" style="display: block; margin: 0 auto; text-align: center;">
+   <img src="images/filter/filterByRemarkScreenshot.png" alt="duplicate person" style="width:80%">
+   </a>
+<div style="text-align: center; font-style: italic;">Clients with remarks like "<b>Eat</b>s alot" and "Likes to <b>eat</b> nasi lemak" are returned.</div>
 
 <box type="warning" header="Warning">
 
@@ -741,6 +734,8 @@ Returns the list of clients whose **remarks include** the **specified keyphrase*
 
 - The command `filter r/ my tag is t/buyer` would cause an error because the system interprets `t/` as the start of a new prefix.
   </box>
+
+<div style="page-break-after: always;"></div>
 
 #### Filter By Birthday Month
 Returns the list of clients whose **birthdays** fall in the **specified month**.
@@ -944,8 +939,6 @@ Displays the **help message** for the **specified command** only.
 
 --------------------------------------------------------------------------------------------------------------------
 
-<div style="page-break-after: always;"></div>
-
 ### Exiting the program : `exit`
 
 **Exits the program** and closes the window.
@@ -962,8 +955,6 @@ Displays the **help message** for the **specified command** only.
   </box>
 
 [Back to Table of Contents](#table-of-contents)
-
-<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -1000,6 +991,8 @@ You may want to **re-enter your client data in a fresh JSON file** in the event 
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Field Constraints
 Summarized in the table below are the attributes of a client along with their constraints. These constraints are **important** and **should be adhered** to when performing Realodex functions!
 
@@ -1025,6 +1018,7 @@ Summarized in the table below are the attributes of a client along with their co
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
 
 ## Command summary
 
