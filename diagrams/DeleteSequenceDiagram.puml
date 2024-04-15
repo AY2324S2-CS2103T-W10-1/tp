@@ -34,7 +34,7 @@ create DeleteCommand
 DeleteCommandParser -> DeleteCommand
 activate DeleteCommand
 
-DeleteCommand --> DeleteCommandParser :
+DeleteCommand --> DeleteCommandParser : d
 deactivate DeleteCommand
 
 DeleteCommandParser --> RealodexParser : d
@@ -62,7 +62,7 @@ activate CommandResult
 CommandResult --> DeleteCommand
 deactivate CommandResult
 
-DeleteCommand --> LogicManager : r
+DeleteCommand --> LogicManager : result
 deactivate DeleteCommand
 
 [<--LogicManager

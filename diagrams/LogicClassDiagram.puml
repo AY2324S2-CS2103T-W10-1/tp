@@ -6,12 +6,11 @@ skinparam classBackgroundColor LOGIC_COLOR
 
 package Logic as LogicPackage {
 
-package "Parser Classes" as ParserClasses{
-}
+
 Class XYZCommand
 Class CommandResult
 Class "{abstract}\nCommand" as Command
-
+Class RealodexParser
 
 Class "<<interface>>\nLogic" as Logic
 Class LogicManager
@@ -28,11 +27,11 @@ Class HiddenOutside #FFFFFF
 HiddenOutside ..> Logic
 
 LogicManager .right.|> Logic
-LogicManager -right->"1" ParserClasses
-ParserClasses ..> XYZCommand : <<create>>
+LogicManager -right->"1" RealodexParser
+RealodexParser ..> XYZCommand : <<create>>
 
 XYZCommand -up-|> Command
-LogicManager .left.> Command : <<call>>
+LogicManager .left.> Command : <<executes>>
 
 LogicManager --> Model
 LogicManager --> Storage

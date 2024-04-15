@@ -39,7 +39,7 @@ create CommandResult
 SortCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> SortCommand : r
+CommandResult --> SortCommand : result
 deactivate CommandResult
 
 
