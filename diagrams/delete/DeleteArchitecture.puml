@@ -1,0 +1,29 @@
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+Class RealodexParser {
+}
+Class "{abstract}\nCommand" as Command {
+  +execute(Model): CommandResult
+}
+Class DeleteCommand {
+-command:String
+  +execute(Model): CommandResult
+}
+
+Class CommandException
+Class ParseException
+
+Class DeleteCommandParser {
+  +parse(String): DeleteCommand
+}
+
+RealodexParser .right.> DeleteCommandParser : creates
+DeleteCommand -right-|> Command
+Command .down.> CommandException: throws >
+DeleteCommandParser .down.> ParseException: throws >
+DeleteCommandParser .right.> DeleteCommand : creates
+
+@enduml

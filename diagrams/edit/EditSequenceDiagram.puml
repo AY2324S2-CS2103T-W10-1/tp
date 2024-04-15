@@ -6,7 +6,7 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":RealodexParser" as RealodexParser LOGIC_COLOR
 participant ":EditCommandParser" as EditCommandParser LOGIC_COLOR
-participant "d:DeleteCommand" as EditCommand LOGIC_COLOR
+participant "d:EditCommand" as EditCommand LOGIC_COLOR
 participant "r:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
@@ -49,7 +49,7 @@ deactivate RealodexParser
 LogicManager -> EditCommand : execute(m)
 activate EditCommand
 
-EditCommand -> Model : editPerson("name"))
+EditCommand -> Model : setPerson(personToEdit, editedPerson))
 activate Model
 
 Model --> EditCommand
