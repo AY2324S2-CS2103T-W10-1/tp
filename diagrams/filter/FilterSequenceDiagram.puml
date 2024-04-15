@@ -5,8 +5,8 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":RealodexParser" as RealodexParser LOGIC_COLOR
 participant ":FilterCommandParser" as FilterCommandParser LOGIC_COLOR
-participant ":FilterCommand" as FilterCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant "c:FilterCommand" as FilterCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
 participant ":PrefixChecker" as PrefixChecker LOGIC_COLOR
 participant ":PredicateProducer" as PredicateProducer LOGIC_COLOR
 end box
@@ -22,7 +22,7 @@ LogicManager -> RealodexParser : parseCommand("filter...")
 activate RealodexParser
 
 create FilterCommandParser
-RealodexParser -> FilterCommandParser : new
+RealodexParser -> FilterCommandParser :
 activate FilterCommandParser
 
 FilterCommandParser --> RealodexParser
@@ -32,7 +32,7 @@ RealodexParser -> FilterCommandParser : parse("filter...")
 activate FilterCommandParser
 
 create PrefixChecker
-FilterCommandParser -> PrefixChecker : new
+FilterCommandParser -> PrefixChecker :
 activate PrefixChecker
 
 PrefixChecker --> FilterCommandParser
@@ -63,7 +63,7 @@ PrefixChecker --> FilterCommandParser
 deactivate PrefixChecker
 
 create PredicateProducer
-FilterCommandParser -> PredicateProducer : new
+FilterCommandParser -> PredicateProducer :
 activate PredicateProducer
 
 PredicateProducer --> FilterCommandParser :
@@ -76,7 +76,7 @@ PredicateProducer --> FilterCommandParser : predicate
 deactivate PredicateProducer
 
 create FilterCommand
-FilterCommandParser -> FilterCommand : new(predicate)
+FilterCommandParser -> FilterCommand :
 activate FilterCommand
 
 FilterCommand --> FilterCommandParser : c
@@ -101,10 +101,10 @@ create CommandResult
 FilterCommand -> CommandResult :
 activate CommandResult
 
-CommandResult --> FilterCommand
+CommandResult --> FilterCommand : r
 deactivate CommandResult
 
-FilterCommand --> LogicManager : result
+FilterCommand --> LogicManager : r
 deactivate FilterCommand
 
 [<--LogicManager
