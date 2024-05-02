@@ -13,7 +13,7 @@
 
 ## **Acknowledgements**
 Some of the NFRs are inspired by [Pawfection](https://ay2324s1-cs2103t-f08-3.github.io/tp/DeveloperGuide.html#appendix-instructions-for-manual-testing)
-
+Some of the Sequence Diagrams inspired by [PoochPlanner](https://github.com/AY2324S2-CS2103T-W10-2/tp/blob/master/docs/DeveloperGuide.md)
 
 
 --------------------------------------------------------------------------------------------------------------------
