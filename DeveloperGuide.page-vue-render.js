@@ -11,7 +11,7 @@ with(this){return _c('h1',{attrs:{"id":"realodex-developer-guide"}},[_v("Realode
 with(this){return _c('h2',{attrs:{"id":"acknowledgements"}},[_c('strong',[_v("Acknowledgements")]),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#acknowledgements","onclick":"event.stopPropagation()"}})])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_v("Some of the NFRs are inspired by "),_c('a',{attrs:{"href":"https://ay2324s1-cs2103t-f08-3.github.io/tp/DeveloperGuide.html#appendix-instructions-for-manual-testing"}},[_v("Pawfection")])])}
+with(this){return _c('p',[_v("Some of the NFRs are inspired by "),_c('a',{attrs:{"href":"https://ay2324s1-cs2103t-f08-3.github.io/tp/DeveloperGuide.html#appendix-instructions-for-manual-testing"}},[_v("Pawfection")]),_v("\nSome of the Sequence Diagrams inspired by "),_c('a',{attrs:{"href":"https://github.com/AY2324S2-CS2103T-W10-2/tp/blob/master/docs/DeveloperGuide.md"}},[_v("PoochPlanner")])])}
 },function anonymous(
 ) {
 with(this){return _c('h2',{attrs:{"id":"setting-up-getting-started"}},[_c('strong',[_v("Setting up, getting started")]),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#setting-up-getting-started","onclick":"event.stopPropagation()"}})])}
@@ -1040,6 +1040,6 @@ with(this){return _c('h3',{attrs:{"id":"difficulty-challenges-efforts-and-achiev
 with(this){return _c('ol',[_c('li',[_c('p',[_c('strong',[_v("Modifying UI Components")]),_v(" One of the significant challenges we encountered was modifying the UI to incorporate our desired background. The UI comprises numerous components,\nmaking it challenging to identify and modify the relevant code sections.")]),_v(" "),_c('p',[_c('strong',[_v("Achievements")]),_v(" Despite the challenge, we successfully navigated the UI structure and implemented the necessary modifications to integrate our custom background, enhancing the visual appeal of the application.")])]),_v(" "),_c('li',[_c('p',[_c('strong',[_v("Test Case Regressions")]),_v(" Another challenge we encountered was that after significant feature changes or additions, many of our test cases failed.\nWe spent considerable time tracing the test code or components to determine the source of the errors.")]),_v(" "),_c('p',[_c('strong',[_v("Achievements")]),_v(" Despite the challenge, this turned out to be a positive experience as it indicated robust code. After addressing the failures, we gained confidence in the robustness of our bug-free features.")])])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Mon, 15 Apr 2024, 23:55:48 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.5.2")]),_v(", generated on Fri, 3 May 2024, 15:41:15 GMT+8]")])])])}
 }];
   
